@@ -40,7 +40,6 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { EmployeeComponent } from './views/employee/employee.component';
 import { RegistrationComponent } from './views/Employee/registration/registration.component';
 
 @NgModule({
@@ -65,7 +64,6 @@ import { RegistrationComponent } from './views/Employee/registration/registratio
     P500Component,
     LoginComponent,
     RegisterComponent,
-    EmployeeComponent,
     RegistrationComponent
   ],
   providers: [{

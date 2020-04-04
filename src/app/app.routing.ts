@@ -55,6 +55,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
       },
       {
+        path:'employee',
+        loadChildren:() => import('./views/employee/employee.module').then(m=>m.EmployeeModule)
+      },
+      {
         path: 'buttons',
         loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
       },
