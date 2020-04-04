@@ -41,6 +41,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { EmployeeComponent } from './views/employee/employee.component';
+import { RegistrationComponent } from './views/Employee/registration/registration.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import { EmployeeComponent } from './views/employee/employee.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    RegistrationComponent
   ],
   providers: [{
     provide: LocationStrategy,
