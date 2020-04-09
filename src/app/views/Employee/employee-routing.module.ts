@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegistrationComponent } from './registration/registration.component';
 import { ViewEmpoyeesComponent } from './view-empoyees/view-empoyees.component';
+import { EmpRegistrationComponent } from './emp-registration/emp-registration.component';
 
 
 const routes: Routes = [
@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     children:[{
       path:'registration',
-      component:RegistrationComponent
+      component:EmpRegistrationComponent
     },
     {
       path:'viewemployees',
