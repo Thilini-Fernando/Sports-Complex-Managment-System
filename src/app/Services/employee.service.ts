@@ -17,6 +17,6 @@ export class EmployeeService {
 
   InsertEmployeeDetails(employee){
     console.log("BBBBBBB",employee)
-    return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employee/insert',employee)
+    return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employee/',employee)
   }
 }

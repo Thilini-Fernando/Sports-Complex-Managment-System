@@ -32,15 +32,15 @@ export class EmpRegistrationComponent implements OnInit {
   }
 
   SaveEmployee() {
-    this.empObj.FirstName = this.profileForm.value.firstName
-    this.empObj.LastName = this.profileForm.value.lastName
-    this.empObj.Address = this.profileForm.value.address
-    this.empObj.DateOfBirth = this.profileForm.value.dateofbirth
-    this.empObj.NIC = this.profileForm.value.nic
-    this.empObj.Gender = this.profileForm.value.gender
-    this.empObj.JoinedDate = this.profileForm.value.joindate
-    this.empObj.MobileNumber = this.profileForm.value.mobilenumber
-    this.empObj.LandPhoneNumber = this.profileForm.value.landphone 
+    this.empObj.firstName = this.profileForm.value.firstName,
+    this.empObj.lastName = this.profileForm.value.lastName,
+    this.empObj.address = this.profileForm.value.address,
+    this.empObj.dateOfBirth = this.profileForm.value.dateofbirth,
+    this.empObj.nic = this.profileForm.value.nic,
+    this.empObj.genderId = Number(this.profileForm.value.gender),
+    this.empObj.joinedDate = this.profileForm.value.joindate,
+    this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
+    this.empObj.landPhoneNumber = this.profileForm.value.landphone 
 
     this.empService.InsertEmployeeDetails(this.empObj).subscribe(data=>{
 

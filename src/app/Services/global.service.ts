@@ -8,7 +8,7 @@ export class GlobalService {
   public base_url:string
 
   constructor(private http:HttpClient) {
-    this.base_url = 'localhost:4200/'
+    this.base_url = 'http://localhost:8080/wijaya_sports_complex_management_system/'
    }
 
  
