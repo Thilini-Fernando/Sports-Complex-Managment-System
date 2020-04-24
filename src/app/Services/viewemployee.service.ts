@@ -11,6 +11,6 @@ export class ViewemployeeService {
   constructor(private http:HttpClient, private global:GlobalService) { }
 
   getemployeedetails(){
-    return this.http.get<ViewemployeeModel>(`${`${this.global.base_url}`}employee/`)
+    return this.http.get<any>(`${`${this.global.base_url}`}employee/`)
   }
 }

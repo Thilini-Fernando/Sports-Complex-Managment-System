@@ -20,16 +20,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>qwe</td>
-                    <td>asd</td>
-                    <td>zxc</td>
-                    <td>zxc</td>
-                    <td>zxc</td>
-                    <td>zxc</td>
-                    <td>zxc</td>
-                    <td>zxc</td>
-                    <td>zxc</td>
+                <tr *ngFor ="let employee of employeeList">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.nic}}</td>
+                    <td>{{employee.designation}}</td>
+                    <td>{{employee.dateOfBirth}}</td>
+                    <td>{{employee.genderName}}</td>
+                    <td>{{employee.joinedDate}}</td>
+                    <td>{{employee.mobileNumber}}</td>
                     <td>
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </td>

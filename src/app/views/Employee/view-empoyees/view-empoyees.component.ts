@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { Http, Response } from '@angular/http';
 import { Subject } from 'rxjs';
 import { ViewemployeeService } from '../../../Services/viewemployee.service';
+import { JsonPipe } from '@angular/common';
 
 
 
@@ -14,6 +15,7 @@ import { ViewemployeeService } from '../../../Services/viewemployee.service';
 })
 export class ViewEmpoyeesComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
+  employeeList=[];
  
  
   dtTrigger = new Subject();
@@ -36,7 +38,7 @@ export class ViewEmpoyeesComponent implements OnInit {
   
   
       this.viewEmpService.getemployeedetails().subscribe(data=>{
-        console.log("DATAAAAAAAAAAAAAA", data)
+        this.employeeList = data.result;
       },err=>{
   
       },()=>{
