@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild} from '@angular/core';
 // import { Http, Response } from '@angular/http';
 import { Subject } from 'rxjs';
 import { ViewemployeeService } from '../../../Services/viewemployee.service';
 import { JsonPipe } from '@angular/common';
+import {ModalDirective} from 'ngx-bootstrap/modal';
 
 
 
@@ -14,16 +15,19 @@ import { JsonPipe } from '@angular/common';
   styleUrls: ['./view-empoyees.component.css']
 })
 export class ViewEmpoyeesComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
-  employeeList=[];
- 
- 
-  dtTrigger = new Subject();
+  @ViewChild('deleteModal') public deleteModal: ModalDirective;
+  @ViewChild('editModal') public editModal: ModalDirective;
   
+  dtOptions: DataTables.Settings = {};
+  employeeList = [];
+
+
+  dtTrigger = new Subject();
+
   profileForm: any;
 
 
-  constructor(private viewEmpService:ViewemployeeService) { }
+  constructor(private viewEmpService: ViewemployeeService) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -34,16 +38,25 @@ export class ViewEmpoyeesComponent implements OnInit {
     this.ViewEmployee();
   }
 
-    ViewEmployee() {
-  
-  
-      this.viewEmpService.getemployeedetails().subscribe(data=>{
-        this.employeeList = data.result;
-      },err=>{
-  
-      },()=>{
-        
-      })
+  ViewEmployee() {
+
+    this.viewEmpService.getemployeedetails().subscribe(data => {
+      this.employeeList = data.result;
+    }, err => {
+
+    }, () => {
+
+    })
+  }
+
+  deleteUser(){
+    console.log("delete User=====");
+    this.deleteModal.show();
+  }
+
+  editUser(){
+    console.log("Edit User ======");
+    this.editModal.show();
   }
 
 }

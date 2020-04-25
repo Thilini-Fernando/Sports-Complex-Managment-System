@@ -8,6 +8,7 @@ import { ReactiveFormsModule, EmailValidator } from '@angular/forms';
 import { daysInMonth } from 'ngx-bootstrap/chronos/units/month';
 import { BsDatepickerInlineContainerComponent } from 'ngx-bootstrap';
 import { DataTablesModule } from 'angular-datatables';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { DataTablesModule } from 'angular-datatables';
     EmployeeRoutingModule, 
     ReactiveFormsModule ,
     DataTablesModule,
+    ModalModule.forRoot()
   ]
 })
 export class EmployeeModule { }
