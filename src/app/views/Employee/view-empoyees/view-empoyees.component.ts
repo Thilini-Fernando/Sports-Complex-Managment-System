@@ -49,14 +49,15 @@ export class ViewEmpoyeesComponent implements OnInit {
     })
   }
 
+  editUser(employee){
+    console.log("Edit User ======",employee);
+    this.editModal.show();
+  }
+
+
   deleteUser(){
     console.log("delete User=====");
     this.deleteModal.show();
-  }
-
-  editUser(){
-    console.log("Edit User ======");
-    this.editModal.show();
   }
 
 }

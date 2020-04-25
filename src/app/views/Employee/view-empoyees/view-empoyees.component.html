@@ -30,7 +30,7 @@
                     <td>{{employee.genderName}}</td>
                     <td>{{employee.joinedDate}}</td>
                     <td>{{employee.mobileNumber}}</td>
-                    <td (click)="editUser()">
+                    <td (click)="editUser(employee)">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </td>
                     <td (click)="deleteUser()">
@@ -43,31 +43,12 @@
     <div class="card-footer"></div>
 
 
-    <div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Modal title</h4>
-              <button type="button" class="close" (click)="deleteModal.hide()" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" (click)="deleteModal.hide()">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div bsModal #editModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Modal title</h4>
+              <h4 class="modal-title">Edit User</h4>
               <button type="button" class="close" (click)="editModal.hide()" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -77,6 +58,26 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" (click)="editModal.hide()">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete User</h4>
+              <button type="button" class="close" (click)="deleteModal.hide()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="deleteModal.hide()">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
