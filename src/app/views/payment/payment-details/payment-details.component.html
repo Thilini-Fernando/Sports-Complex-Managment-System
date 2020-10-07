@@ -1,26 +1,22 @@
 <div class="card">
     <div class="card-header">
-        <h5>View Employee</h5>
+        <h5>View Payment Details</h5>
     </div>
     <div class="card-body">
         <table datatable class="row-border hover">
             <thead>
                 <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Address</th>
-                    <th>NIC</th>
-                    <th>Designation</th>                  
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
-                    <th>Joined Date</th>
-                    <th>Mobile Number</th>
-                    <th></th>
-                    <th></th>
+                    <th>Member ID</th>
+                    <th>Member Name</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Print View</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor ="let employee of employeeList">
+                <!-- <tr *ngFor ="let employee of employeeList">
                     <td>{{employee.firstName}}</td>
                     <td>{{employee.lastName}}</td>
                     <td>{{employee.address}}</td>
@@ -36,7 +32,7 @@
                     <td (click)="deleteUser()">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -54,7 +50,7 @@
               </button>
             </div>
             <div class="modal-body">
-             <app-emp-registration></app-emp-registration>
+              <p>One fine body&hellip;</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" (click)="editModal.hide()">Close</button>
@@ -85,3 +81,4 @@
       </div>
 
 </div>
+

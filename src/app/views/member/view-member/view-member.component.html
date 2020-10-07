@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor ="let employee of employeeList">
+                <!-- <tr *ngFor ="let employee of employeeList">
                     <td>{{employee.firstName}}</td>
                     <td>{{employee.lastName}}</td>
                     <td>{{employee.address}}</td>
@@ -36,7 +36,7 @@
                     <td (click)="deleteUser()">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -54,7 +54,7 @@
               </button>
             </div>
             <div class="modal-body">
-             <app-emp-registration></app-emp-registration>
+              <p>One fine body&hellip;</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" (click)="editModal.hide()">Close</button>

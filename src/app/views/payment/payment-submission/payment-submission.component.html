@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h5>Payment Submission</h5>
+            </div>
+            <div class="card-body">
+                <form  [formGroup]="paymentForm">
+                   
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-4 form-label">
+                                    <label><strong> Member Id:</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-8 ">
+                                    <input type="text" class="form-control" formControlName="memberId"
+                                        placeholder="Enter ID">
+                                </div>
+                            </div>
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-4 form-label">
+                                    <label>
+                                        <strong> Status:</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" formControlName="paymentStatus"
+                                        placeholder="Enter Payment Status">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-4 form-label">
+                                    <label><strong> Amount:</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control text-area" formControlName="amount"
+                                        placeholder="Enter Amount">
+                                </div>
+                            </div>
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-4 form-label">
+                                    <label>
+                                        <strong>Date:</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-8 ">
+                                    <input type="date" class="form-control " formControlName="paymentDate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="col-md-12 row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 row">
+                        <div class="col-md-9">
+                            <button class="btn btn-dark button-size">Reset</button>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2">
+                            <button class="btn btn-dark button-size" (click)="SaveEmployee()">Submit</button>
+                        </div>
+                  
+                </div>
+            </div>
+            </div>     
+    </div>
+    <!-- <div class="col-md-2"></div> -->
+</div>
+</div>

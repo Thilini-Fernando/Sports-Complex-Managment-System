@@ -1,0 +1,393 @@
+<ngb-tabset >
+    <ngb-tab title="Details">
+      <ng-template ngbTabContent>
+        <div class="row" >
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Member Registration</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="profileForm">
+                            <!-- left side -->
+                            <div class="row col-md-12">
+                                <div class="col-md-6">
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label><strong> First Name:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="text" class="form-control" formControlName="firstName"
+                                                placeholder="Enter Firts Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label><strong> Address:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea type="text" class="form-control text-area" formControlName="address"
+                                                placeholder="Enter Address"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Date of Birth:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="date" class="form-control " formControlName="dateofbirth">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Join Date:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="date" class="form-control " formControlName="joindate">
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Moile Number:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="mobilenumber"
+                                                minlength="10" maxlength="10" placeholder="Enter Mobile Number">
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- right side -->
+                                <div class="col-md-6">
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Last Name:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" formControlName="lastName"
+                                                placeholder="Enter Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>NIC</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" formControlName="nic" minlength="10"
+                                                maxlength="12" placeholder="Enter NIC">
+                                        </div>
+                                    </div><br>
+                                    <div class="col-md-12 row form-group gender-margin">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Gender</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="radio" value="1" formControlName="gender"><span> Male</span>&nbsp;&nbsp;
+                                            <input type="radio" value="2" formControlName="gender"><span> Female</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Sports:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label>
+                                                <input type="checkbox" ng-model="checkboxModel.value1">Badminton
+                                              </label><br/>
+                                              <label>
+                                                <input type="checkbox" ng-model="checkboxModel.value1">Swimming
+                                              </label><br/>
+                                              <label>
+                                                <input type="checkbox" ng-model="checkboxModel.value1">Gym
+                                              </label><br/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Land Phone:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="landphone" minlength="10"
+                                                maxlength="10" placeholder="Enter Land Phone Number">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="col-md-12 row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6 row">
+                                <div class="col-md-9">
+                                    <button class="btn btn-dark button-size">Reset</button>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-dark button-size" (click)="SaveEmployee()">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-2"></div> -->
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Mesurements</ng-template>
+      <ng-template ngbTabContent>
+        <div class="row" style="padding-top:18px">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Member Mesurements</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="profileForm">
+                            <!-- left side -->
+                            <div class="row col-md-12">
+                                <div class="col-md-6">
+                                    
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label><strong> Chest:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="number" class="form-control" formControlName="chest"
+                                                placeholder="Enter Chest cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label><strong> Left Arm:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="leftArm"
+                                                placeholder="Enter Left Arm cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Abdomen:</strong>
+                                            </label>
+                                        </div>
+                                      <div class="col-md-8 ">
+                                            <input type="number" class="form-control" formControlName="abdomen"
+                                                placeholder="Enter Abdomen cm">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Left Thigh:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="leftThigh"
+                                            placeholder="Enter Left Thigh cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Left Calf:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="leftCalf" 
+                                            placeholder="Enter Left Calf cm">
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- right side -->
+                                <div class="col-md-6">
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Waist:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="waist"
+                                                placeholder="Enter Waist cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Right Arm</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="rightArm"
+                                             placeholder="Enter Right Thigh cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Hips</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="hips"
+                                             placeholder="Enter Hips cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Right Thigh:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="rightThigh"
+                                            placeholder="Enter Right Thigh cm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong> Right Calf:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" formControlName="rightCalf"
+                                             placeholder="Enter Right Calf cm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="col-md-12 row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6 row">
+                                <div class="col-md-9">
+                                    <button class="btn btn-dark button-size">Reset</button>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-dark button-size" (click)="SaveEmployee()">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-2"></div> -->
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Reg. Fee" >
+      <ng-template ngbTabContent>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Registration Fee</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="profileForm">
+                            <!-- left side -->
+                            <div class="row col-md-12">
+                             
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label><strong> Description:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="text" class="form-control" formControlName="description"
+                                                placeholder="Enter Description">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label><strong> Amount:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea type="text" class="form-control text-area" formControlName="amount"
+                                                placeholder="Select Amount"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Status:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="text" class="form-control " formControlName="status"
+                                            placeholder="Select Status">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row form-group">
+                                        <div class="col-md-4 form-label">
+                                            <label>
+                                                <strong>Date:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 ">
+                                            <input type="date" class="form-control " formControlName="registerDate">
+                                        </div>
+                                    </div>
+                                   
+                        </div>
+
+                       
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="col-md-12 row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6 row">
+                                <div class="col-md-9">
+                                    <button class="btn btn-dark button-size">Reset</button>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-dark button-size" (click)="SaveEmployee()">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-2"></div> -->
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>

@@ -46,6 +46,57 @@ export const navItems: INavData[] = [
     ]
   },
   {
+    name: "Member",
+    url: "/member",
+    icon: "icon-puzzle",
+    children: [
+      {
+        name: "Registration",
+        url: "/member/registration",
+        icon: "icon-puzzle"
+      },
+      {
+        name: "View Members",
+        url: "/member/viewmembers",
+        icon: "icon-puzzle"
+      }
+    ]
+  },
+  {
+    name: "Payment",
+    url: "/payment",
+    icon: "icon-puzzle",
+    children: [
+      {
+        name: "Payment Submission",
+        url: "/payment/paymentsubmission",
+        icon: "icon-puzzle"
+      },
+      {
+        name: "Payment Details",
+        url: "/payment/paymentdetails",
+        icon: "icon-puzzle"
+      }
+    ]
+  },
+  {
+    name: "Reservation",
+    url: "/reservation",
+    icon: "icon-puzzle",
+    children: [
+      {
+        name: "Add Reservation",
+        url: "/reservation/addreservation",
+        icon: "icon-puzzle"
+      },
+      {
+        name: "View Reservation",
+        url: "/reservation/viewreservation",
+        icon: "icon-puzzle"
+      }
+    ]
+  },
+  {
     name: "Buttons",
     url: "/buttons",
     icon: "icon-cursor",
