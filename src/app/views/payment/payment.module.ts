@@ -5,7 +5,7 @@ import { PaymentRoutingModule } from './payment-routing.module';
 import { PaymentSubmissionComponent } from './payment-submission/payment-submission.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import {ReactiveFormsModule }  from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({

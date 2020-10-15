@@ -6,7 +6,7 @@ import { ViewEmpoyeesComponent } from './view-empoyees/view-empoyees.component';
 import { EmpRegistrationComponent } from './emp-registration/emp-registration.component';
 import { ReactiveFormsModule, EmailValidator } from '@angular/forms';
 import { daysInMonth } from 'ngx-bootstrap/chronos/units/month';
-import { BsDatepickerInlineContainerComponent } from 'ngx-bootstrap';
+import { BsDatepickerInlineContainerComponent } from 'ngx-bootstrap/datepicker';
 import { DataTablesModule } from 'angular-datatables';
 import { ModalModule } from 'ngx-bootstrap/modal';
 

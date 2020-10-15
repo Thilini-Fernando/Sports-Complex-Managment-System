@@ -6,7 +6,7 @@ import { AddReservationComponent } from './add-reservation/add-reservation.compo
 import { ViewReservationComponent } from './view-reservation/view-reservation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
