@@ -1,4 +1,4 @@
-<ngb-tabset >
+<ngb-tabset #tabset="ngbTabset" >
     <ngb-tab title="Details">
       <ng-template ngbTabContent>
         <div class="row" >
@@ -40,7 +40,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <input type="date" class="form-control " formControlName="dateofbirth">
+                                            <input type="date" class="form-control " formControlName="dateOfBirth">
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -50,7 +50,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <input type="date" class="form-control " formControlName="joindate">
+                                            <input type="date" class="form-control " formControlName="joinedDate">
                                         </div>
                                     </div>
                                     <br/>
@@ -98,8 +98,8 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="radio" value="1" formControlName="gender"><span> Male</span>&nbsp;&nbsp;
-                                            <input type="radio" value="2" formControlName="gender"><span> Female</span>
+                                            <input type="radio" value="1" formControlName="genderId"><span> Male</span>&nbsp;&nbsp;
+                                            <input type="radio" value="2" formControlName="genderId"><span> Female</span>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -110,13 +110,13 @@
                                         </div>
                                         <div class="col-md-8">
                                             <label>
-                                                <input type="checkbox" ng-model="checkboxModel.value1">Badminton
+                                                <input type="checkbox" id="checkbox-1" value="value-1" (change)="onCheckChange(profileForm.value.myValues,1)"  formControlName="myValues">Badminton
                                               </label><br/>
                                               <label>
-                                                <input type="checkbox" ng-model="checkboxModel.value1">Swimming
+                                                <input type="checkbox" id="checkbox-2" value="value-2" (change)="onCheckChange(profileForm.value.myValues,2)" formControlName="myValues" >Swimming
                                               </label><br/>
                                               <label>
-                                                <input type="checkbox" ng-model="checkboxModel.value1">Gym
+                                                <input type="checkbox" id="checkbox-3" value="value-3" (change)="onCheckChange(profileForm.value.myValues,3)" formControlName="myValues">Gym
                                               </label><br/>
                                         </div>
                                     </div>
@@ -144,7 +144,8 @@
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-dark button-size" (click)="SaveEmployee()">Next</button>
+                                    <!-- <button class="btn btn-dark button-size" (click)="SaveEmployee(profileForm.value)">Next</button> -->
+                                    <button class="btn btn-dark button-size" (click)="tabset.select('mesurements')">Next</button>
                                 </div>
                             </div>
                         </div>
@@ -155,8 +156,7 @@
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>Mesurements</ng-template>
+    <ngb-tab title="Mesurements" id="mesurements">
       <ng-template ngbTabContent>
         <div class="row" style="padding-top:18px">
             <div class="col-md-1"></div>
@@ -297,7 +297,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-dark button-size" (click)="SaveEmployee()">Next</button>
+                                    <button class="btn btn-dark button-size" (click)="tabset.select('reg.fee')">Next</button>
                                 </div>
                             </div>
                         </div>
@@ -308,7 +308,7 @@
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab title="Reg. Fee" >
+    <ngb-tab title="Reg. Fee" id="reg.fee">
       <ng-template ngbTabContent>
         <div class="row">
             <div class="col-md-1"></div>
@@ -379,7 +379,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-dark button-size" (click)="SaveEmployee()">Next</button>
+                                    <button class="btn btn-dark button-size" (click)="SaveMember(profileForm.value)">Save</button>
                                 </div>
                             </div>
                         </div>
