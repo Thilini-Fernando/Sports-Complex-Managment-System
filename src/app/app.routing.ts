@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -12,7 +13,7 @@ import { LoginComponent } from './views/login/login.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -36,19 +37,15 @@ export const routes: Routes = [
       title: 'Login Page'
     }
   },
-  // {
-  //   path: 'register',
-  //   component: RegisterComponent,
-  //   data: {
-  //     title: 'Register Page'
-  //   }
-  // },
+  
+  
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
+    
     children: [
       {
         path: 'base',
