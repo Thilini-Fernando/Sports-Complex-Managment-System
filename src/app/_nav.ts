@@ -35,7 +35,7 @@ export const navItems: INavData[] = [
     children: [
       {
         name: "Registration",
-        url: "/employee/registration",
+        url: "/employee/registration/:id",
         icon: "icon-puzzle"
       },
       {

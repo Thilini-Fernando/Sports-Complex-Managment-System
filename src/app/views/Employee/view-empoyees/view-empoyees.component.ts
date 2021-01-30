@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { ViewemployeeService } from '../../../Services/viewemployee.service';
 import { JsonPipe } from '@angular/common';
 import {ModalDirective} from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 
 
@@ -25,9 +26,10 @@ export class ViewEmpoyeesComponent implements OnInit {
   dtTrigger = new Subject();
 
   profileForm: any;
+  view:boolean = true;
 
 
-  constructor(private viewEmpService: ViewemployeeService) { }
+  constructor(private viewEmpService: ViewemployeeService, private router : Router) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -42,6 +44,7 @@ export class ViewEmpoyeesComponent implements OnInit {
 
     this.viewEmpService.getemployeedetails().subscribe(data => {
       this.employeeList = data.result;
+      console.log("0000000000000000", this.employeeList)
     }, err => {
 
     }, () => {
@@ -50,8 +53,11 @@ export class ViewEmpoyeesComponent implements OnInit {
   }
 
   editUser(employee){
+    // this.router.navigate['/registration']
+    this.router.navigate(['/employee/registration/'+employee.id]);
+    this.view = false
     console.log("Edit User ======",employee);
-    this.editModal.show();
+    // this.editModal.show();
   }
 
 
