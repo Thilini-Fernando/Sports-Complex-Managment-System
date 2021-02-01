@@ -1,0 +1,12 @@
+.form-label{
+    padding: 0;
+}
+.button-size{
+    width: 80px;
+    height: 35px;
+    float: right;
+    margin-right: -45px;
+}
+.gender-margin{
+    margin-bottom: 20px;
+}

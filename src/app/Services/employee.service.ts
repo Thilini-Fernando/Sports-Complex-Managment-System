@@ -8,20 +8,18 @@ import { EmployeeModel } from '../Models/employee-model';
 })
 export class EmployeeService {
 
-  // getEmployeeDetails(empObj: EmployeeModel) {
-  //   throw new Error("Method not implemented.");
-  // }
-
-
   constructor(private http:HttpClient, private global:GlobalService) { }
 
   InsertEmployeeDetails(employee){
-    console.log("BBBBBBB",employee)
     return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employee/',employee)
   }
 
   UpdateEmployeeDetails(employee){
-    console.log("BBBBBBB",employee)
-    return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employee/',employee)
+    return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employeeUpdate/',employee)
   }
+
+  DeleteEmployeeDetails(id){
+    return this.http.get<number>(`${this.global.base_url}`+'employeeDelete?Id=${Id}')
+  }
+
 }

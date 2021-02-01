@@ -9,6 +9,7 @@ import { daysInMonth } from 'ngx-bootstrap/chronos/units/month';
 import { BsDatepickerInlineContainerComponent } from 'ngx-bootstrap/datepicker';
 import { DataTablesModule } from 'angular-datatables';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     EmployeeRoutingModule, 
     ReactiveFormsModule ,
     DataTablesModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),    
+    ToastrModule.forRoot()
   ]
 })
 export class EmployeeModule { }

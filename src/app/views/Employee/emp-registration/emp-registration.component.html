@@ -37,7 +37,8 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8 ">
-                                    <input type="date" class="form-control " [(ngModel)]="dateofbirth" [(value)]="dateofbirth" name="dateofbirth"  formControlName="dateofbirth">
+                                    <input type="date" class="form-control " [(ngModel)]="dateofbirth"
+                                        [(value)]="dateofbirth" name="dateofbirth" formControlName="dateofbirth">
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -94,7 +95,8 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="radio" value="1" formControlName="gender"><span> Male</span>&nbsp;&nbsp;
+                                    <input type="radio" value="1" formControlName="gender"><span>
+                                        Male</span>&nbsp;&nbsp;
                                     <input type="radio" value="2" formControlName="gender"><span> Female</span>
                                 </div>
                             </div>
@@ -134,7 +136,7 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-6 row">
                         <div class="col-md-9">
-                            <button class="btn btn-dark button-size">Reset</button>
+                            <button class="btn btn-dark button-size" (click)="ResetPage()">Reset</button>
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
