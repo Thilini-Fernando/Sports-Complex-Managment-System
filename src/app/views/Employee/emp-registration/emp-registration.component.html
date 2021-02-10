@@ -48,7 +48,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8 ">
-                                    <input type="date" class="form-control " formControlName="joindate">
+                                    <input type="date" class="form-control " formControlName="joindate" [(ngModel)]="joinDate">
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -95,9 +95,10 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="radio" value="1" formControlName="gender"><span>
+                                    <input type="radio" value="1" formControlName="gender" [checked]="selectedGender === 'Male'"><span>
                                         Male</span>&nbsp;&nbsp;
-                                    <input type="radio" value="2" formControlName="gender"><span> Female</span>
+                                    <input type="radio" value="2" formControlName="gender" [checked]="selectedGender === 'Female'"><span> Female</span>
+                                    
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">

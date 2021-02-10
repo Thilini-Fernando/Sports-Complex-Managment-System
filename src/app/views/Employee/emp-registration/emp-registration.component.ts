@@ -18,9 +18,11 @@ export class EmpRegistrationComponent implements OnInit {
   empObj: EmployeeModel = new EmployeeModel()
   @Input() view: boolean;
   employeeList = [];
+  employeeListNew :any;
   filterList = [];
   empId: number = 0;
   dateofbirth: string;
+  joinDate:string;
   formname: string = 'Employee Registration';
   savebtn: string = 'Submit';
 
@@ -53,6 +55,7 @@ export class EmpRegistrationComponent implements OnInit {
 
   }
 
+  selectedGender:boolean;
   loadEmployees() {
     this.formname = 'Update Employee'
     this.savebtn = 'Update'
@@ -65,23 +68,31 @@ export class EmpRegistrationComponent implements OnInit {
     }, () => {
 
       this.employeeList.forEach(element => {
-        if (element.id = this.empId) {
-          this.profileForm.patchValue({
-            firstName: element.firstName,
-            lastName: element.lastName,
-            address: element.address,
-            nic: element.nic,
-            gender: element.gender,
-            joindate: element.joindate,
-            mobilenumber: element.mobileNumber,
-            landphone: element.landPhoneNumber
-          });
-
-          this.dateofbirth = this.datepipe.transform(element.dateofbirth, 'yyyy-MM-dd')
+        if (element.id == this.empId) {
+          this.employeeListNew = element
+         
         }
 
 
       })
+
+      this.profileForm.patchValue({
+        firstName:  this.employeeListNew.firstName,
+        lastName:  this.employeeListNew.lastName,
+        address:  this.employeeListNew.address,
+        nic:  this.employeeListNew.nic,
+        dateofbirth: this.employeeListNew.dateOfBirth,
+        gender:  this.employeeListNew.genderName,
+        joindate:  this.employeeListNew.joindate,
+        designation: this.employeeListNew.designation,
+        mobilenumber:  this.employeeListNew.mobileNumber,
+        landphone:  this.employeeListNew.landPhoneNumber
+      });
+
+      this.selectedGender =   this.employeeListNew.genderName
+      console.log("222",this.employeeListNew)
+      this.dateofbirth = this.datepipe.transform( this.employeeListNew.dateOfBirth, 'yyyy-MM-dd')
+      this.joinDate = this.datepipe.transform( this.employeeListNew.joinedDate, 'yyyy-MM-dd')
     })
   }
 
@@ -103,7 +114,7 @@ export class EmpRegistrationComponent implements OnInit {
         this.toastr.success("Successfully inserted..!")
         this.profileForm.reset()
       }, err => {
-        this.toastr.success("Something went wrong..!")
+        this.toastr.error("Something went wrong..!")
       }, () => {
 
       })
@@ -123,7 +134,7 @@ export class EmpRegistrationComponent implements OnInit {
         this.toastr.success("Successfully updated..!")
         this.profileForm.reset()
       }, err => {
-        this.toastr.success("Something went wrong..!")
+        this.toastr.error("Something went wrong..!")
       }, () => {
 
       })

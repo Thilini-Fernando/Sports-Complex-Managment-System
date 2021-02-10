@@ -3,8 +3,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ViewemployeeService } from '../../../Services/viewemployee.service';
 import { JsonPipe } from '@angular/common';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ModalDirective, ModalOptions } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
+import { EmployeeService } from '../../../Services/employee.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -21,7 +23,7 @@ export class ViewEmpoyeesComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   employeeList = [];
-
+  empId:number
 
   dtTrigger = new Subject();
 
@@ -29,7 +31,8 @@ export class ViewEmpoyeesComponent implements OnInit {
   view: boolean = true;
 
 
-  constructor(private viewEmpService: ViewemployeeService, private router: Router) { }
+  constructor(private viewEmpService: ViewemployeeService, private router: Router,private empServce:EmployeeService,
+    public toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -59,8 +62,21 @@ export class ViewEmpoyeesComponent implements OnInit {
   }
 
 
-  deleteUser() {
+  
+  deleteUser(id) {
+    var config: ModalOptions = { class: 'modal-sm' };
+    this.empId = id;
     this.deleteModal.show();
+  }
+
+  DeleteEmployee(){
+  this.empServce.DeleteEmployeeDetails(this.empId).subscribe(data=>{
+  this.toastr.success("Successfully deleted..!")  
+  },err=>{
+    this.toastr.error("Something went wrong..!")  
+  },()=>{
+
+  })
   }
 
 }

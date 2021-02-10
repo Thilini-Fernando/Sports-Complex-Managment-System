@@ -97,25 +97,16 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: "Buttons",
-    url: "/buttons",
+    name: "Reports",
+    url: "/report",
     icon: "icon-cursor",
     children: [
       {
-        name: "Buttons",
-        url: "/buttons/buttons",
+        name: "Reports",
+        url: "/report/reportgen",
         icon: "icon-cursor"
       },
-      {
-        name: "Dropdowns",
-        url: "/buttons/dropdowns",
-        icon: "icon-cursor"
-      },
-      {
-        name: "Brand Buttons",
-        url: "/buttons/brand-buttons",
-        icon: "icon-cursor"
-      }
+      
     ]
   },
   {
