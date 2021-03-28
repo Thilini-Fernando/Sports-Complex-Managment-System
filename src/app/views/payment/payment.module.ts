@@ -7,9 +7,10 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import {ReactiveFormsModule }  from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataTablesModule } from 'angular-datatables';
+import { GuestpaymentsubmissionComponent } from './guestpaymentsubmission/guestpaymentsubmission.component';
 
 @NgModule({
-  declarations: [PaymentSubmissionComponent, PaymentDetailsComponent],
+  declarations: [PaymentSubmissionComponent, PaymentDetailsComponent, GuestpaymentsubmissionComponent],
   imports: [
     CommonModule,
     PaymentRoutingModule,

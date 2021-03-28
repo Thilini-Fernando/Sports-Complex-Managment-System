@@ -5,10 +5,7 @@ export const navItems: INavData[] = [
     name: "Dashboard",
     url: "/dashboard",
     icon: "icon-speedometer",
-    badge: {
-      variant: "info",
-      text: "NEW"
-    }
+   
   },
   // {
   //   title: true,
@@ -24,153 +21,158 @@ export const navItems: INavData[] = [
   //   url: '/theme/typography',
   //   icon: 'icon-pencil'
   // },
-  {
-    title: true,
-    name: "Components"
-  },
+  // {
+  //   title: true,
+  //   name: "Components"
+  // },
   {
     name: "Employee",
     url: "/employee",
-    icon: "icon-puzzle",
+    icon: "fa fa-users",
     children: [
       {
         name: "Registration",
         url: "/employee/registration/:id",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       },
       {
         name: "View Employees",
         url: "/employee/viewemployees",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       }
     ]
   },
   {
     name: "Member",
     url: "/member",
-    icon: "icon-puzzle",
+    icon: "fa fa-user",
     children: [
       {
         name: "Registration",
         url: "/member/registration",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       },
       {
         name: "View Members",
         url: "/member/viewmembers",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       }
     ]
   },
   {
     name: "Payment",
     url: "/payment",
-    icon: "icon-puzzle",
+    icon: "fa fa-money",
     children: [
       {
         name: "Payment Submission",
         url: "/payment/paymentsubmission",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
+      },
+      {
+        name: "Guest Payment Submission",
+        url: "/payment/guestpaymentsubmission",
+        icon: "fa fa-arrow-right"
       },
       {
         name: "Payment Details",
         url: "/payment/paymentdetails",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       }
     ]
   },
   {
     name: "Reservation",
     url: "/reservation",
-    icon: "icon-puzzle",
+    icon: "fa fa-book",
     children: [
       {
         name: "Add Reservation",
         url: "/reservation/addreservation",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       },
       {
         name: "View Reservation",
         url: "/reservation/viewreservation",
-        icon: "icon-puzzle"
+        icon: "fa fa-arrow-right"
       }
     ]
   },
   {
     name: "Reports",
     url: "/report",
-    icon: "icon-cursor",
+    icon: "fa fa-print",
     children: [
       {
         name: "Reports",
         url: "/report/reportgen",
-        icon: "icon-cursor"
+        icon: "fa fa-arrow-right"
       },
       
     ]
   },
-  {
-    name: "Charts",
-    url: "/charts",
-    icon: "icon-pie-chart"
-  },
-  {
-    name: "Icons",
-    url: "/icons",
-    icon: "icon-star",
-    children: [
-      {
-        name: "CoreUI Icons",
-        url: "/icons/coreui-icons",
-        icon: "icon-star",
-        badge: {
-          variant: "success",
-          text: "NEW"
-        }
-      },
-      {
-        name: "Flags",
-        url: "/icons/flags",
-        icon: "icon-star"
-      },
-      {
-        name: "Font Awesome",
-        url: "/icons/font-awesome",
-        icon: "icon-star",
-        badge: {
-          variant: "secondary",
-          text: "4.7"
-        }
-      },
-      {
-        name: "Simple Line Icons",
-        url: "/icons/simple-line-icons",
-        icon: "icon-star"
-      }
-    ]
-  },
-  {
-    name: "Notifications",
-    url: "/notifications",
-    icon: "icon-bell",
-    children: [
-      {
-        name: "Alerts",
-        url: "/notifications/alerts",
-        icon: "icon-bell"
-      },
-      {
-        name: "Badges",
-        url: "/notifications/badges",
-        icon: "icon-bell"
-      },
-      {
-        name: "Modals",
-        url: "/notifications/modals",
-        icon: "icon-bell"
-      }
-    ]
-  },
+  // {
+  //   name: "Charts",
+  //   url: "/charts",
+  //   icon: "icon-pie-chart"
+  // },
+  // {
+  //   name: "Icons",
+  //   url: "/icons",
+  //   icon: "icon-star",
+  //   children: [
+  //     {
+  //       name: "CoreUI Icons",
+  //       url: "/icons/coreui-icons",
+  //       icon: "icon-star",
+  //       badge: {
+  //         variant: "success",
+  //         text: "NEW"
+  //       }
+  //     },
+  //     {
+  //       name: "Flags",
+  //       url: "/icons/flags",
+  //       icon: "icon-star"
+  //     },
+  //     {
+  //       name: "Font Awesome",
+  //       url: "/icons/font-awesome",
+  //       icon: "icon-star",
+  //       badge: {
+  //         variant: "secondary",
+  //         text: "4.7"
+  //       }
+  //     },
+  //     {
+  //       name: "Simple Line Icons",
+  //       url: "/icons/simple-line-icons",
+  //       icon: "icon-star"
+  //     }
+  //   ]
+  // },
+  // {
+  //   name: "Notifications",
+  //   url: "/notifications",
+  //   icon: "icon-bell",
+  //   children: [
+  //     {
+  //       name: "Alerts",
+  //       url: "/notifications/alerts",
+  //       icon: "icon-bell"
+  //     },
+  //     {
+  //       name: "Badges",
+  //       url: "/notifications/badges",
+  //       icon: "icon-bell"
+  //     },
+  //     {
+  //       name: "Modals",
+  //       url: "/notifications/modals",
+  //       icon: "icon-bell"
+  //     }
+  //   ]
+  // },
   // {
   //   name: 'Widgets',
   //   url: '/widgets',

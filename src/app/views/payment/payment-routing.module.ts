@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PaymentSubmissionComponent } from './payment-submission/payment-submission.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { GuestpaymentsubmissionComponent } from './guestpaymentsubmission/guestpaymentsubmission.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,11 @@ const routes: Routes = [
     {
       path:'paymentdetails',
       component:PaymentDetailsComponent
-    }
+    },
+    {
+      path:'guestpaymentsubmission',
+      component:GuestpaymentsubmissionComponent
+    },
   ]
   },
 ];
