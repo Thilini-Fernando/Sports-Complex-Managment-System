@@ -15,8 +15,8 @@ export class MemberService {
 
   constructor(private http:HttpClient, private global:GlobalService) { }
 
-  insertMemberDetails(member){
-    console.log("BBBBBBB",member)
-    return this.http.post<any>(`${this.global.base_url}`+'member/',member);
+  insertMemberDetails(memberVO){
+    console.log("BBBBBBB",memberVO)
+    return this.http.post<any>(`${this.global.base_url}`+'member/',memberVO);
   }
 }
