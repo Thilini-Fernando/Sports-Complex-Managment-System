@@ -14,6 +14,7 @@ export class MemberRegistrationComponent implements OnInit {
   memberModel =  new MemberModel();
   measurementModel = new Mesurements();
   regFeeModel = new RegistrationFees();
+  sportId:number;
 
   profileForm = new FormGroup({
     firstName: new FormControl(''),
@@ -77,7 +78,8 @@ export class MemberRegistrationComponent implements OnInit {
     this.memberModel.mobileNumber = formDate.mobileNumber
     this.memberModel.registrationFee = formDate.registrationFee
     this.memberModel.nic = formDate.nic
-    this.memberModel.sportsId = this.sportList
+    //this.memberModel.sportsId = this.sportList
+    this.memberModel.sportId =this.sportId;
     
     this.memberModel.measurement = []
     this.memberModel.registrationFee = []
@@ -96,24 +98,30 @@ export class MemberRegistrationComponent implements OnInit {
   onCheckChange(event, id) {
     if (event && id == 1) {
       this.sportList.push(1);
+      this.sportId =1;
     } else if (!event && id == 1) {
       const index = this.sportList.indexOf(1);
       if (index > -1) {
         this.sportList.splice(index, 1);
+        this.sportId =1;
       }
     } else if (event && id == 2) {
       this.sportList.push(2);
+      this.sportId =2;
     } else if (!event && id == 2) {
       const index = this.sportList.indexOf(2);
       if (index > -1) {
         this.sportList.splice(index, 1);
+        this.sportId =1;
       }
     } else if (event && id == 3) {
       this.sportList.push(3);
+      this.sportId =3;
     } else if (!event && id == 3) {
       const index = this.sportList.indexOf(3);
       if (index > -1) {
         this.sportList.splice(index, 1);
+        this.sportId =1;
       }
     }
     console.log("event data=====", this.sportList);
