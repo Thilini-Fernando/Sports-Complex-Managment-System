@@ -15,7 +15,7 @@ export class EmployeeService {
   }
 
   UpdateEmployeeDetails(employee){
-    return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employeeUpdate/',employee)
+    return this.http.post<EmployeeModel>(`${this.global.base_url}`+'employee/employeeUpdate/',employee)
   }
 
   DeleteEmployeeDetails(id){

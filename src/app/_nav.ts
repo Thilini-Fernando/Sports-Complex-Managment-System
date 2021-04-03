@@ -70,7 +70,7 @@ export const navItems: INavData[] = [
         icon: "fa fa-arrow-right"
       },
       {
-        name: "Guest Payment Submission",
+        name: "Guest Payment ",
         url: "/payment/guestpaymentsubmission",
         icon: "fa fa-arrow-right"
       },

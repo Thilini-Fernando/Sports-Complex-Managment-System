@@ -3,31 +3,34 @@
         <h5>Reports</h5>
     </div>
     <div class="card-body">
-        <div class=" row form-group">
-            <div class=" row col-md-6">
-                <div class="col-md-4 form-label">
-                    <label>
-                        <strong>From Date:</strong>
-                    </label>
+        <form [formGroup]="reportForm">
+            <div class=" row form-group">
+                <div class=" row col-md-6">
+                    <div class="col-md-4 form-label">
+                        <label>
+                            <strong>From Date:</strong>
+                        </label>
+                    </div>
+                    <div class="col-md-8 ">
+                        <input type="date" class="form-control " [(ngModel)]="fromdate" 
+                          formControlName="fromdate">
+                    </div>
                 </div>
-                <div class="col-md-8 ">
-                    <input type="date" class="form-control " [(ngModel)]="fromdate" 
-                      formControlName="fromdate">
+                <div class="row col-md-6">
+                    <div class="col-md-4 form-label">
+                        <label>
+                            <strong>To Date:</strong>
+                        </label>
+                    </div>
+                    <div class="col-md-8 ">
+                        <input type="date" class="form-control " [(ngModel)]="todate" 
+                          formControlName="todate">
+                    </div>
                 </div>
+               
             </div>
-            <div class="row col-md-6">
-                <div class="col-md-4 form-label">
-                    <label>
-                        <strong>To Date:</strong>
-                    </label>
-                </div>
-                <div class="col-md-8 ">
-                    <input type="date" class="form-control " [(ngModel)]="todate" 
-                      formControlName="todate">
-                </div>
-            </div>
-           
-        </div>
+        </form>
+ 
         <div class="row ">
             <div class="row col-md-6">
                 <div class="col-md-4">
@@ -36,7 +39,7 @@
                     </label>
                 </div>
                 <div class="col-md-8 ">
-                    <select class="custom-select">
+                    <select class="custom-select" formControlName="todate">
                         <option value="" disabled>Report type</option>
                         <option>type1</option>
                         <option>type2</option>
@@ -45,6 +48,12 @@
                 </div>
                
             </div>
+        </div>
+       
+    </div>
+    <div class="card-footer">
+        <div class="row" style="float: right;">
+            <button style="margin-right: 70px;" class="btn btn-dark button-size">Print</button>
         </div>
     </div>
 </div>
