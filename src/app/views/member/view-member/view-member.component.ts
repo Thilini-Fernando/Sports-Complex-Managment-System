@@ -13,6 +13,7 @@ export class ViewMemberComponent implements OnInit {
   memberList: MemberModel[];
   closeResult = '';
   @ViewChild('viewModal') public vewModal: ModalDirective;
+  @ViewChild('deleteModal') public deleteModal: ModalDirective;
 
   constructor(public memberService: MemberService
     // , private modalService: NgbModal
@@ -38,9 +39,11 @@ export class ViewMemberComponent implements OnInit {
     })
   }
   content:any
-ViewMore(Id){
-  this.memberService.getMemberWiseDetails(Id).subscribe(data=>{
-    this.content = data
+ViewMore(memberId){
+  
+  this.memberService.getMemberWiseDetails(memberId).subscribe(data=>{
+    console.log("dataaaa",data)
+    this.content = data.result.measurement
   })
  
   this.vewModal.show();
@@ -50,6 +53,25 @@ ViewMore(Id){
     // }, (reason) => {
     //   this.closeResult = `Dismissed`;
     // });
+  }
+
+  memberId:number;
+  deleteMember(meberId){
+    this.memberId = meberId
+    this.deleteModal.show();
+
+  }
+
+  DeleteMemberOk(){
+
+    this.deleteModal.show();
+    this.memberService.deleteMember( this.memberId).subscribe(data=>{
+
+    },err=>{
+
+    },()=>{
+
+    })
   }
 }
 

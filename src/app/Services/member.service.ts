@@ -27,4 +27,8 @@ export class MemberService {
   getMemberWiseDetails(memberId){
     return this.http.get<any>(`${this.global.base_url}`+`member/${memberId}`);
   }
+
+ deleteMember(memberId){
+    return this.http.get<any>(`${this.global.base_url}`+`member/delete/${memberId}`);
+  }
 }

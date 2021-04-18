@@ -46,6 +46,7 @@ export class ViewEmpoyeesComponent implements OnInit {
   ViewEmployee() {
 
     this.viewEmpService.getemployeedetails().subscribe(data => {
+      console.log("employeee",data)
       this.employeeList = data.result;
 
     }, err => {
