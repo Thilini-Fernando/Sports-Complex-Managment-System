@@ -67,10 +67,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS,
     P404Component,
     P500Component,
     LoginComponent,
+    DefaultLayoutComponent
 
   ],
   providers: [{

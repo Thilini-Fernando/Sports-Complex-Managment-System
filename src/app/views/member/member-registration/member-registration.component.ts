@@ -41,7 +41,6 @@ export class MemberRegistrationComponent implements OnInit {
 
     description: new FormControl(''),
     amount: new FormControl(''),
-    status: new FormControl(''),
     registerDate: new FormControl('')
 
   });
@@ -54,37 +53,37 @@ export class MemberRegistrationComponent implements OnInit {
     this.measurementModel.chest = formDate.chest
     this.measurementModel.abdomen = formDate.abdomen
     this.measurementModel.hips = formDate.hips
-    this.measurementModel.left_arm = formDate.left_arm
-    this.measurementModel.left_calf = formDate.left_calf
-    this.measurementModel.left_thigh = formDate.left_thigh
-    this.measurementModel.right_arm = formDate.right_arm
-    this.measurementModel.right_calf = formDate.right_calf
-    this.measurementModel.right_thigh = formDate.right_thigh
-    this.measurementModel.wrist = formDate.wrist
+    this.measurementModel.left_arm = formDate.leftArm
+    this.measurementModel.left_calf = formDate.leftCalf
+    this.measurementModel.left_thigh = formDate.leftThigh
+    this.measurementModel.right_arm = formDate.rightArm
+    this.measurementModel.right_calf = formDate.rightCalf
+    this.measurementModel.right_thigh = formDate.rightThigh
+    this.measurementModel.wrist = formDate.waist
 
-    this.regFeeModel.amount = formDate.amount
-    this.regFeeModel.date = formDate.date
-    this.regFeeModel.description = formDate.description
-    this.regFeeModel.status = formDate.status
+    this.regFeeModel.amount = Number(formDate.amount);
+    this.regFeeModel.date = formDate.registerDate;
+    this.regFeeModel.description = formDate.description;
+  
 
     // formDate.sportsId =this.sportList;
-    this.memberModel.address = formDate.address
-    this.memberModel.dateOfBirth = formDate.dateOfBirth
-    this.memberModel.firstName = formDate.firstName
-    this.memberModel.lastName = formDate.lastName
-    this.memberModel.genderId = formDate.genderId
-    this.memberModel.joinedDate = formDate.joinedDate
-    this.memberModel.landPhoneNumber = formDate.landPhoneNumber
-    this.memberModel.mobileNumber = formDate.mobileNumber
-    this.memberModel.registrationFee = formDate.registrationFee
-    this.memberModel.nic = formDate.nic
+    this.memberModel.address = formDate.address;
+    this.memberModel.dateOfBirth = formDate.dateOfBirth;
+    this.memberModel.firstName = formDate.firstName;
+    this.memberModel.lastName = formDate.lastName;
+    this.memberModel.genderId = formDate.genderId;
+    this.memberModel.joinedDate = formDate.joinedDate;
+    this.memberModel.landPhoneNumber = formDate.landPhoneNumber;
+    this.memberModel.mobileNumber = formDate.mobileNumber;
+    this.memberModel.registrationFee = formDate.registrationFee;
+    this.memberModel.nic = formDate.nic;
     //this.memberModel.sportsId = this.sportList
     this.memberModel.sportId =this.sportId;
     
-    this.memberModel.measurement = []
-    this.memberModel.registrationFee = []
-    this.memberModel.measurement.push(this.measurementModel)
-    this.memberModel.registrationFee.push(this.regFeeModel)
+    this.memberModel.measurement = [];
+    this.memberModel.registrationFee = [];
+    this.memberModel.measurement.push(this.measurementModel);
+    this.memberModel.registrationFee.push(this.regFeeModel);
 
     console.log("SAVEDATA", this.memberModel)
     this.memberService.insertMemberDetails(this.memberModel).subscribe(Response=>{

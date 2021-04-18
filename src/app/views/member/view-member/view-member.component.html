@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>View Employee</h5>
+        <h5>View Member</h5>
     </div>
     <div class="card-body">
         <table datatable class="row-border hover">
@@ -9,34 +9,34 @@
                     <th>First name</th>
                     <th>Last name</th>
                     <th>Address</th>
-                    <th>NIC</th>
-                    <th>Designation</th>                  
+                    <th>NIC</th>                 
                     <th>Date of Birth</th>
                     <th>Gender</th>
                     <th>Joined Date</th>
                     <th>Mobile Number</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor ="let employee of employeeList">
-                    <td>{{employee.firstName}}</td>
-                    <td>{{employee.lastName}}</td>
-                    <td>{{employee.address}}</td>
-                    <td>{{employee.nic}}</td>
-                    <td>{{employee.designation}}</td>
-                    <td>{{employee.dateOfBirth}}</td>
-                    <td>{{employee.genderName}}</td>
-                    <td>{{employee.joinedDate}}</td>
-                    <td>{{employee.mobileNumber}}</td>
+                <tr *ngFor ="let member of memberList">
+                    <td>{{member.firstName}}</td>
+                    <td>{{member.lastName}}</td>
+                    <td>{{member.address}}</td>
+                    <td>{{member.nic}}</td>
+                    <td>{{member.dateOfBirth}}</td>
+                    <td>{{member.gender}}</td>
+                    <td>{{member.joinedDate}}</td>
+                    <td>{{member.mobileNumber}}</td>
                     <td (click)="editUser(employee)">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </td>
                     <td (click)="deleteUser()">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </td>
-                </tr> -->
+                    <td><i class="fa fa-eye" aria-hidden="true" (click)="ViewMore(member.Id)"></i></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -85,3 +85,24 @@
       </div>
 
 </div>
+
+<div bsModal #viewModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">View Member</h4>
+        <button type="button" class="close" (click)="viewModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+

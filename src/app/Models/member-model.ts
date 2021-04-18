@@ -13,6 +13,7 @@ export class MemberModel {
     //sportsId:any[];
     measurement:Mesurements[];
     registrationFee:RegistrationFees[];
+    gender?:string;
 }
 
 export class Mesurements {

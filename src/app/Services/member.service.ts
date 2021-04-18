@@ -19,4 +19,12 @@ export class MemberService {
     console.log("BBBBBBB",memberVO)
     return this.http.post<any>(`${this.global.base_url}`+'member/',memberVO);
   }
+
+  getMemberDetails(){
+    return this.http.get<any>(`${this.global.base_url}`+'member/');
+  }
+
+  getMemberWiseDetails(memberId){
+    return this.http.get<any>(`${this.global.base_url}`+`member/${memberId}`);
+  }
 }
