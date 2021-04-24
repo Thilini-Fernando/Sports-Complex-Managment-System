@@ -49,7 +49,7 @@ export const navItems: INavData[] = [
     children: [
       {
         name: "Registration",
-        url: "/member/registration",
+        url: "/member/registration/:id",
         icon: "fa fa-arrow-right"
       },
       {

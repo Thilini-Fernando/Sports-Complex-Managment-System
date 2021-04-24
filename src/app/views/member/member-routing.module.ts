@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     children:[{
-      path:'registration',
+      path:'registration/:id',
       component:MemberRegistrationComponent
     },
     {

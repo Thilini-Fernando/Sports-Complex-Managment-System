@@ -1,5 +1,6 @@
 export class MemberModel {
     id:number;
+    memberId:number;
     firstName:string;
     lastName:string;
     address:string;

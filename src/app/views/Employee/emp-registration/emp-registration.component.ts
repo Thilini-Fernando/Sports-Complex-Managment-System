@@ -109,7 +109,7 @@ export class EmpRegistrationComponent implements OnInit {
         this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
         this.empObj.landPhoneNumber = this.profileForm.value.landphone
 
-
+      console.log("EMPLOYEEEE",this.empObj)
       this.empService.InsertEmployeeDetails(this.empObj).subscribe(data => {
         this.toastr.success("Successfully inserted..!")
         this.profileForm.reset()

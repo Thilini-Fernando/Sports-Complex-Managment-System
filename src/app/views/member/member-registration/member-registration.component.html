@@ -40,7 +40,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <input type="date" class="form-control " formControlName="dateOfBirth">
+                                            <input type="date" class="form-control " formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -50,7 +50,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <input type="date" class="form-control " formControlName="joinedDate">
+                                            <input type="date" class="form-control " formControlName="joinedDate" [(ngModel)]="joinedDate">
                                         </div>
                                     </div>
                                     <br/>
@@ -98,8 +98,8 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="radio" value="1" formControlName="genderId"><span> Male</span>&nbsp;&nbsp;
-                                            <input type="radio" value="2" formControlName="genderId"><span> Female</span>
+                                            <input type="radio" value="1" [checked]="isTrueMale"  formControlName="genderId"><span> Male</span>&nbsp;&nbsp;
+                                            <input type="radio" value="2" [checked]="isTrueFemale"  formControlName="genderId"><span> Female</span>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -297,7 +297,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-dark button-size" (click)="tabset.select('reg.fee')">Next</button>
+                                    <button class="btn btn-dark button-size" (click)="tabset.select('reg.fee');Update(profileForm.value)">{{NextBtn}}</button>
                                 </div>
                             </div>
                         </div>
@@ -308,7 +308,7 @@
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab title="Reg. Fee" id="reg.fee">
+    <ngb-tab title="Reg. Fee" id="reg.fee" [disabled]="disableFeeTab">
       <ng-template ngbTabContent>
         <div class="row">
             <div class="col-md-1"></div>

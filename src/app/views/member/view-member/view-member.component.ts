@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 import { MemberModel } from '../../../Models/member-model';
@@ -15,7 +16,7 @@ export class ViewMemberComponent implements OnInit {
   @ViewChild('viewModal') public vewModal: ModalDirective;
   @ViewChild('deleteModal') public deleteModal: ModalDirective;
 
-  constructor(public memberService: MemberService
+  constructor(public memberService: MemberService,private router: Router,
     // , private modalService: NgbModal
     ) {
 
@@ -53,6 +54,11 @@ ViewMore(memberId){
     // }, (reason) => {
     //   this.closeResult = `Dismissed`;
     // });
+  }
+
+  editUser(member) {
+    console.log("nnnn",member)
+    this.router.navigate(['/member/registration/' + member.memberId]);
   }
 
   memberId:number;
