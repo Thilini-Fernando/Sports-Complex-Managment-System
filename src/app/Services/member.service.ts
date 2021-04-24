@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { GlobalService } from './global.service';
 import { EmployeeModel } from '../Models/employee-model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class MemberService {
   // getEmployeeDetails(empObj: EmployeeModel) {
   //   throw new Error("Method not implemented.");
   // }
-
+  
 
   constructor(private http:HttpClient, private global:GlobalService) { }
 
@@ -34,6 +35,13 @@ export class MemberService {
   }
 
  deleteMember(memberId){
-    return this.http.get<any>(`${this.global.base_url}`+`member/delete/${memberId}`);
+  let headers = new HttpHeaders();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Access-Control-Allow-Origin', '*');
+  headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT');
+  headers.append('Accept', 'application/json');
+  headers.append('Access-Control-Allow-Headers', 'X-Requested-With');
+  
+    return this.http.delete<any>(`${this.global.base_url}`+`member/${memberId}`);
   }
 }
