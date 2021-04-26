@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 
@@ -7,23 +7,30 @@ import { GlobalService } from './global.service';
 })
 export class PaymentService {
 
-  constructor(private http:HttpClient, private global:GlobalService) { }
+  constructor(private http: HttpClient, private global: GlobalService) { }
 
-  getPaymentDetails(){
-    return this.http.get<any>(`${this.global.base_url}`+'payment/');
+  getPaymentDetails() {
+    return this.http.get<any>(`${this.global.base_url}` + 'payment/');
   }
 
 
-  insertPaymentDetails(paymentVO){
-    return this.http.post<any>(`${this.global.base_url}`+'payment/',paymentVO);
+  insertPaymentDetails(paymentVO) {
+    return this.http.post<any>(`${this.global.base_url}` + 'payment/', paymentVO);
   }
 
-  updatePaymentDetails(paymentVO){
-    return this.http.put<any>(`${this.global.base_url}`+'payment/',paymentVO);
+  updatePaymentDetails(paymentVO) {
+    return this.http.put<any>(`${this.global.base_url}` + 'payment/', paymentVO);
   }
 
- deletePayment(paymentId){
-    return this.http.delete<any>(`${this.global.base_url}`+`payment/${paymentId}`);
+  deletePayment(paymentId) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT');
+    headers.append('Accept', 'application/json');
+    headers.append('Access-Control-Allow-Headers', 'X-Requested-With');
+    return this.http.delete<any>(`${this.global.base_url}` + `payment/${paymentId}`);
+
   }
 
 }
