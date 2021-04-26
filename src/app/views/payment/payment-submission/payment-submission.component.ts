@@ -53,7 +53,7 @@ SavePayment(){
 this.memberListNew.memberId = this.paymentForm.value.memberId
 this.memberListNew.amount = this.paymentForm.value.amount
 this.memberListNew.date = this.paymentForm.value.paymentDate
-this.memberListNew.remark = this.paymentForm.value.paymentStatus
+this.memberListNew.status = this.paymentForm.value.paymentStatus
 
 
 this.pay.insertPaymentDetails(this.memberListNew).subscribe(data=>{
