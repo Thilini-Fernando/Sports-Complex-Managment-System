@@ -63,7 +63,7 @@ export class AddReservationComponent implements OnInit {
   }
 
   selectSport(event){
-    this.Reservation.sportId = event
+    this.Reservation.sport = event
   }
 
   SaveReservation(){
@@ -71,7 +71,7 @@ export class AddReservationComponent implements OnInit {
     this.Reservation.contactNo = this.reservationForm.value.contactno
     this.Reservation.firstName =  this.reservationForm.value.firstName
     this.Reservation.lastNme = this.reservationForm.value.lastName
-    this.Reservation.reservDate = this.reservationForm.value.date
+    this.Reservation.date = this.reservationForm.value.date
     this.Reservation.time = this.reservationForm.value.time
 
     console.log("ReservationData",this.Reservation)
