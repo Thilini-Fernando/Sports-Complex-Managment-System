@@ -1,12 +1,12 @@
 import { Time } from "@angular/common";
 
 export class ReservationModel {
-    ReservationId:number;
-    FirstName:string;
-    LastNme:string;
-    ReservDate:Date;
-    ContactNo:number;
-    Time:Time;
-    Sports:any[];
+    reservationId:number;
+    firstName:string;
+    lastNme:string;
+    reservDate:Date;
+    contactNo:number;
+    time:Time;
+    sportId:number;
   
 }

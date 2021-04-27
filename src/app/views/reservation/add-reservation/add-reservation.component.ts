@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ReservationModel } from '../../../Models/reservation-model';
 import { ReservationService } from '../../../Services/reservation.service';
 
@@ -22,7 +23,7 @@ export class AddReservationComponent implements OnInit {
     contactno: new FormControl(''),
   });
     
-  constructor(private ReservationServc:ReservationService) { }
+  constructor(private ReservationServc:ReservationService, public toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -61,19 +62,28 @@ export class AddReservationComponent implements OnInit {
 
   }
 
+  selectSport(event){
+    this.Reservation.sportId = event
+  }
+
   SaveReservation(){
     console.log("event data=====",  this.sportList);
-    this.Reservation.ContactNo = this.reservationForm.value.contactno
-    this.Reservation.FirstName =  this.reservationForm.value.firstName
-    this.Reservation.LastNme = this.reservationForm.value.lastName
-    this.Reservation.ReservDate = this.reservationForm.value.date
-    this.Reservation.Sports = this.sportList
-    this.Reservation.Time = this.reservationForm.value.time
+    this.Reservation.contactNo = this.reservationForm.value.contactno
+    this.Reservation.firstName =  this.reservationForm.value.firstName
+    this.Reservation.lastNme = this.reservationForm.value.lastName
+    this.Reservation.reservDate = this.reservationForm.value.date
+    this.Reservation.time = this.reservationForm.value.time
 
-    
+    console.log("ReservationData",this.Reservation)
     this.ReservationServc.insertReservationDetails(this.Reservation).subscribe(data=>{
       console.log("aaaaaaaaaaaaaaaaaaaa", data)
+      this.toastr.success("Successfully inserted..")
+    },err=>{
+      this.toastr.error("Somethng went wrong",err)
+    },()=>{
+
     })
   }
+
 
 }

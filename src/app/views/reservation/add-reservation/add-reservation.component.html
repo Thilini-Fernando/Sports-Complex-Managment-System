@@ -73,7 +73,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <label>
+                                    <!-- <label>
                                         <input type="checkbox" id="checkbox-1" value="value-1" (change)="onCheckChange(reservationForm.value.sport,1)"  formControlName="sport">&nbsp; Badminton
                                       </label><br/>
                                       <label>
@@ -81,8 +81,17 @@
                                       </label><br/>
                                       <label>
                                         <input type="checkbox" id="checkbox-3" value="value-3" (change)="onCheckChange(reservationForm.value.sport,3)" formControlName="sport">&nbsp; Gym
-                                      </label><br/>
-                                </div>
+                                      </label><br/> -->
+                                     
+                                        <select class="custom-select" (change)="selectSport($event.target.value)">
+                                            <option [value]="1">Badminton</option>
+                                            <option [value]="2">Swmming</option>
+                                            <option  [value]="3">Gym</option>
+                                        </select>
+                         
+
+                                        </div>
+                                     
                             </div>
                         </div>
                     </div>
