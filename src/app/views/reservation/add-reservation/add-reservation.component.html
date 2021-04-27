@@ -26,8 +26,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <textarea type="date" class="form-control text-area" formControlName="date"
-                                        placeholder=""></textarea>
+                                    <input type="date" class="form-control " formControlName="date">
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -40,27 +39,7 @@
                                     <input type="time" class="form-control " formControlName="time">
                                 </div>
                             </div>
-                            <div class="col-md-12 row form-group">
-                                <div class="col-md-4 form-label">
-                                    <label>
-                                        <strong>Sport:</strong>
-                                    </label>
-                                </div>
-                                <div class="col-md-8 ">
-                                    <input type="date" class="form-control " formControlName="sport">
-                                </div>
-                            </div>
-                            <!-- <div class="col-md-12 row form-group">
-                                <div class="col-md-4 form-label">
-                                    <label>
-                                        <strong> Moile Number:</strong>
-                                    </label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="number" class="form-control" formControlName="mobilenumber"
-                                        minlength="10" maxlength="10" placeholder="Enter Mobile Number">
-                                </div>
-                            </div> -->
+                          
                         </div>
 
                         <!-- right side -->
@@ -87,44 +66,24 @@
                                         maxlength="10" placeholder="Enter Contact Number">
                                 </div>
                             </div><br>
-                            <!-- <div class="col-md-12 row form-group gender-margin">
+                            <div class="col-md-12 row form-group" style="    margin-top: -20px;">
                                 <div class="col-md-4 form-label">
                                     <label>
-                                        <strong>Gender</strong>
+                                        <strong>Sport:</strong>
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="radio" value="1" formControlName="gender"><span> Male</span>&nbsp;&nbsp;
-                                    <input type="radio" value="2" formControlName="gender"><span> Female</span>
-                                </div>
-                            </div> -->
-                            <!-- <div class="col-md-12 row form-group">
-                                <div class="col-md-4 form-label">
                                     <label>
-                                        <strong> Designation:</strong>
-                                    </label>
+                                        <input type="checkbox" id="checkbox-1" value="value-1" (change)="onCheckChange(reservationForm.value.sport,1)"  formControlName="sport">&nbsp; Badminton
+                                      </label><br/>
+                                      <label>
+                                        <input type="checkbox" id="checkbox-2" value="value-2" (change)="onCheckChange(reservationForm.value.sport,2)" formControlName="sport" >&nbsp; Swimming
+                                      </label><br/>
+                                      <label>
+                                        <input type="checkbox" id="checkbox-3" value="value-3" (change)="onCheckChange(reservationForm.value.sport,3)" formControlName="sport">&nbsp; Gym
+                                      </label><br/>
                                 </div>
-                                <div class="col-md-8">
-                                    <select class="custom-select">
-                                        <option value="" disabled>Select Designation</option>
-                                        <option>Chairman</option>
-                                        <option>Manager</option>
-                                        <option>Receptionist</option>
-                                        <option>Trainer</option>
-                                    </select>
-                                </div>
-                            </div> -->
-                            <!-- <div class="col-md-12 row form-group">
-                                <div class="col-md-4 form-label">
-                                    <label>
-                                        <strong> Land Phone:</strong>
-                                    </label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="number" class="form-control" formControlName="landphone" minlength="10"
-                                        maxlength="10" placeholder="Enter Land Phone Number">
-                                </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -138,7 +97,7 @@
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
-                            <button class="btn btn-dark button-size" (click)="SaveEmployee()">Submit</button>
+                            <button class="btn btn-dark button-size" (click)="SaveReservation()">Submit</button>
                         </div>
                     </div>
                 </div>
