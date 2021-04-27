@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 import { MemberModel } from '../../../Models/member-model';
 import { MemberService } from '../../../Services/member.service';
@@ -16,9 +17,9 @@ export class ViewMemberComponent implements OnInit {
   @ViewChild('viewModal') public vewModal: ModalDirective;
   @ViewChild('deleteModal') public deleteModal: ModalDirective;
 
-  constructor(public memberService: MemberService,private router: Router,
+  constructor(public memberService: MemberService, private router: Router, public toastr: ToastrService
     // , private modalService: NgbModal
-    ) {
+  ) {
 
   }
 
@@ -39,15 +40,15 @@ export class ViewMemberComponent implements OnInit {
       console.log("memberdata", this.memberList)
     })
   }
-  content:any
-ViewMore(memberId){
-  
-  this.memberService.getMemberWiseDetails(memberId).subscribe(data=>{
-    console.log("dataaaa",data)
-    this.content = data.result.measurement
-  })
- 
-  this.vewModal.show();
+  content: any
+  ViewMore(memberId) {
+
+    this.memberService.getMemberWiseDetails(memberId).subscribe(data => {
+      console.log("dataaaa", data)
+      this.content = data.result.measurement
+    })
+
+    this.vewModal.show();
 
     // this.modalService.open(this.content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
     //   this.closeResult = `Closed with: ${result}`;
@@ -57,25 +58,25 @@ ViewMore(memberId){
   }
 
   editUser(member) {
-    console.log("nnnn",member)
+    console.log("nnnn", member)
     this.router.navigate(['/member/registration/' + member.memberId]);
   }
 
-  memberId:number;
-  deleteMember(meberId){
+  memberId: number;
+  deleteMember(meberId) {
     this.memberId = meberId
     this.deleteModal.show();
 
   }
 
-  DeleteMemberOk(){
+  DeleteMemberOk() {
 
     this.deleteModal.show();
-    this.memberService.deleteMember( this.memberId).subscribe(data=>{
-
-    },err=>{
-
-    },()=>{
+    this.memberService.deleteMember(this.memberId).subscribe(data => {
+      this.toastr.success("Successfully deleted..")
+    }, err => {
+      this.toastr.error("Something went wrong..")
+    }, () => {
 
     })
   }

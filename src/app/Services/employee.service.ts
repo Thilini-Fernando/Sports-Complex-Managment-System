@@ -28,4 +28,8 @@ export class EmployeeService {
     return this.http.get<number>(`${this.global.base_url}`+'employeeDelete?Id=${Id}')
   }
 
+  Test() {
+    return this.http.post<String>('http://localhost:8081/test/new', null)
+  }
+
 }

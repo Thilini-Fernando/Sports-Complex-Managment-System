@@ -238,7 +238,7 @@ export class MemberRegistrationComponent implements OnInit {
     this.memberModel.measurement = [];
     this.memberModel.registrationFee = [];
     this.memberModel.measurement.push(this.measurementModel);
-  }
+
 
   this.memberService.updateMemberDetails(this.memberModel).subscribe(data=>{
 
@@ -249,4 +249,5 @@ export class MemberRegistrationComponent implements OnInit {
   })
 
   }
+}
 }

@@ -17,8 +17,8 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor ="let employee of employeeList">
-                    <td>{{employee.firstName}}</td>
+                <tr *ngFor ="let data of ResList">
+                    <!-- <td>{{employee.firstName}}</td>
                     <td>{{employee.lastName}}</td>
                     <td>{{employee.address}}</td>
                     <td>{{employee.nic}}</td>
@@ -26,14 +26,14 @@
                     <td>{{employee.dateOfBirth}}</td>
                     <td>{{employee.genderName}}</td>
                     <td>{{employee.joinedDate}}</td>
-                    <td>{{employee.mobileNumber}}</td>
+                    <td>{{employee.mobileNumber}}</td> -->
                     <td (click)="editUser(employee)">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </td>
                     <td (click)="deleteUser()">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>
     </div>
