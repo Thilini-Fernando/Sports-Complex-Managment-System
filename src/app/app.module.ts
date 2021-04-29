@@ -42,7 +42,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -61,6 +61,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule ,
+    FormsModule
 
    
     

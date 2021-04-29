@@ -5,7 +5,7 @@ export class ReservationModel {
     firstName:string;
     lastNme:string;
     date:Date;
-    contactNo:number;
+    contactNumber:number;
     time:Time;
     sport:number=1;
   

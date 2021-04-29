@@ -10,15 +10,15 @@ export class ReservationService {
   constructor(private http:HttpClient, private global:GlobalService) { }
 
   insertReservationDetails(reservationVO){   
-    return this.http.post<any>(`${this.global.base_url}`+'payment/',reservationVO);
+    return this.http.post<any>(`${this.global.base_url}`+'reservation/',reservationVO);
   }
 
   updateReservationDetails(reservationVO){
-    return this.http.put<any>(`${this.global.base_url}`+'payment/',reservationVO);
+    return this.http.put<any>(`${this.global.base_url}`+'reservation/',reservationVO);
   }
 
   getReservationDetails(){
-    return this.http.get<any>(`${this.global.base_url}`+'payment/');
+    return this.http.get<any>(`${this.global.base_url}`+'reservation/');
   }
 
 
@@ -30,6 +30,6 @@ export class ReservationService {
   headers.append('Accept', 'application/json');
   headers.append('Access-Control-Allow-Headers', 'X-Requested-With');
   
-  return this.http.delete<any>(`${this.global.base_url}`+`payment/${ReservationId}`);
+  return this.http.delete<any>(`${this.global.base_url}`+`reservation/${ReservationId}`);
   }
 }
