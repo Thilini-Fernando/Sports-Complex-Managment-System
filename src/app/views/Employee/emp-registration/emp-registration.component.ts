@@ -120,6 +120,7 @@ export class EmpRegistrationComponent implements OnInit {
       })
 
     } else {
+        this.empObj.id = this.empId,
         this.empObj.firstName = this.profileForm.value.firstName,
         this.empObj.lastName = this.profileForm.value.lastName,
         this.empObj.address = this.profileForm.value.address,
