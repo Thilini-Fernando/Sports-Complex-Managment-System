@@ -108,11 +108,13 @@ export class EmpRegistrationComponent implements OnInit {
         this.empObj.joinedDate = this.profileForm.value.joindate,
         this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
         this.empObj.landPhoneNumber = this.profileForm.value.landphone
+        this.empObj.designation = this.designation
 
       console.log("EMPLOYEEEE",this.empObj)
       this.empService.InsertEmployeeDetails(this.empObj).subscribe(data => {
         this.toastr.success("Successfully inserted..!")
         this.profileForm.reset()
+        
       }, err => {
         this.toastr.error("Something went wrong..!")
       }, () => {
@@ -129,6 +131,7 @@ export class EmpRegistrationComponent implements OnInit {
         this.empObj.joinedDate = this.profileForm.value.joindate,
         this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
         this.empObj.landPhoneNumber = this.profileForm.value.landphone
+        this.empObj.designation = this.designation
 
       this.empService.UpdateEmployeeDetails(this.empObj).subscribe(data => {
         this.toastr.success("Successfully updated..!")
@@ -143,6 +146,21 @@ export class EmpRegistrationComponent implements OnInit {
 
   ResetPage(){
     this.profileForm.reset()
+  }
+
+  designation:string;
+  selectedDesignation(event){
+    console.log("ooooooooo",event.target.value)
+    this.designation = event.target.value
+  }
+
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
   }
 
 

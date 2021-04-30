@@ -58,8 +58,8 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="number" class="form-control" formControlName="mobilenumber"
-                                        minlength="10" maxlength="10" placeholder="Enter Mobile Number">
+                                    <input class="form-control" formControlName="mobilenumber"
+                                    type="text" (keypress)="keyPress($event)"maxlength="10" placeholder="Enter Mobile Number">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <select class="custom-select">
+                                    <select class="custom-select" (change)="selectedDesignation($event)">
                                         <option value="" disabled>Select Designation</option>
                                         <option>Chairman</option>
                                         <option>Manager</option>
@@ -124,8 +124,8 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="number" class="form-control" formControlName="landphone" minlength="10"
-                                        maxlength="10" placeholder="Enter Land Phone Number">
+                                    <input class="form-control" formControlName="landphone" 
+                                    type="text" (keypress)="keyPress($event)"maxlength="10" placeholder="Enter Land Phone Number">
                                 </div>
                             </div>
                         </div>

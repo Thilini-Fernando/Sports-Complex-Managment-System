@@ -9,6 +9,7 @@ export class EmployeeModel {
     joinedDate:Date;
     mobileNumber:number;
     landPhoneNumber:number;
+    designation:string;
     
 }
 
