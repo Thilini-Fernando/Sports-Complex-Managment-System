@@ -29,7 +29,7 @@ export class ViewMemberComponent implements OnInit {
 
   loadData() {
     this.memberService.getMemberDetails().subscribe(data => {
-
+      this.memberList = []
       this.memberList = data.result.reverse();
       this.memberList.forEach(element => {
         if (element.genderId == 1)
@@ -74,6 +74,7 @@ export class ViewMemberComponent implements OnInit {
     this.deleteModal.show();
     this.memberService.deleteMember(this.memberId).subscribe(data => {
       this.toastr.success("Successfully deleted..")
+      this.loadData();
     }, err => {
       this.toastr.error("Something went wrong..")
     }, () => {

@@ -156,8 +156,8 @@ export class MemberRegistrationComponent implements OnInit {
     this.memberModel.mobileNumber = formDate.mobileNumber;
     this.memberModel.registrationFee = formDate.registrationFee;
     this.memberModel.nic = formDate.nic;
-    //this.memberModel.sportsId = this.sportList
-    this.memberModel.sportId = this.sportId;
+    this.memberModel.sportsId = this.sportList
+    // this.memberModel.sportId = this.sportId;
 
     this.memberModel.measurement = [];
     this.memberModel.registrationFee = [];
@@ -217,10 +217,8 @@ export class MemberRegistrationComponent implements OnInit {
   }
 
   Update(formDate) {
-    if (this.profileForm.invalid ) {
-      console.log("kkkkkkkk",this.myTabset.activeId)
-      this.toastr.warning("Please fill all details..")
-    }else{
+   
+  
       if (Number.isNaN(this.memberId) == false) {
 
         this.measurementModel.chest = formDate.chest
@@ -247,14 +245,14 @@ export class MemberRegistrationComponent implements OnInit {
         this.memberModel.mobileNumber = formDate.mobileNumber;
         this.memberModel.registrationFee = formDate.registrationFee;
         this.memberModel.nic = formDate.nic;
-        //this.memberModel.sportsId = this.sportList
-        this.memberModel.sportId = this.sportId;
+        this.memberModel.sportsId = this.sportList
+        // this.memberModel.sportId = this.sportId;
   
         this.memberModel.measurement = [];
         this.memberModel.registrationFee = [];
         this.memberModel.measurement.push(this.measurementModel);
   
-  
+  console.log("bbbbbbbbbbbbbbbb",this.memberModel,this.sportList)
         this.memberService.updateMemberDetails(this.memberModel).subscribe(data => {
   
         }, err => {
@@ -271,24 +269,29 @@ export class MemberRegistrationComponent implements OnInit {
           this.myTabset.select('tab3');
         
       }
-    }
+ 
   
   }
 
 
   firstNext(mesurements) {
-    this.profileForm.patchValue({
-      registerDate: 'register date',
-      description: 'description',
-      amount: 'amount'})
-    if (this.profileForm.invalid ) {
-      console.log("kkkkkkkk",this.myTabset.activeId)
-      this.toastr.warning("Please fill all details..")
-    } else {
-      this.isSecondTab = true;
-      this.myTabset.select('tab2');
+    if (Number.isNaN(this.memberId) == true) {
+      this.profileForm.patchValue({
+        registerDate: 'register date',
+        description: 'description',
+        amount: 'amount'})
+      if (this.profileForm.invalid ) {
       
+        this.toastr.warning("Please fill all details..")
+      } else {
+        this.isSecondTab = true;
+        this.myTabset.select('tab2');
+        
+      }
+    }else{
+      this.myTabset.select('tab2');
     }
+   
   }
 
   keyPress(event: any) {

@@ -10,8 +10,8 @@ export class MemberModel {
     joinedDate:Date;
     mobileNumber:number;
     landPhoneNumber:number;
-    sportId:number;
-    //sportsId:any[];
+    // sportId:number;
+    sportsId:any[];
     measurement:Mesurements[];
     registrationFee:RegistrationFees[];
     gender?:string;
