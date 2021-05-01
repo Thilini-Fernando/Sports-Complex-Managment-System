@@ -1,5 +1,5 @@
-<ngb-tabset #tabset="ngbTabset" >
-    <ngb-tab title="Details">
+<ngb-tabset #tabset >
+    <ngb-tab title="Details" id="tab1">
       <ng-template ngbTabContent>
         <div class="row" >
             <div class="col-md-1"></div>
@@ -21,6 +21,11 @@
                                         <div class="col-md-8 ">
                                             <input type="text" class="form-control" formControlName="firstName"
                                                 placeholder="Enter Firts Name">
+                                                <div style="background-color: white;border-color: white;color: red"
+                                                *ngIf="profileForm.controls.firstName.invalid && ( profileForm.controls.firstName.touched)"
+                                                class="alert alert-danger">
+                                                *First Name is required.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -31,6 +36,10 @@
                                         <div class="col-md-8">
                                             <textarea type="text" class="form-control text-area" formControlName="address"
                                                 placeholder="Enter Address"></textarea>
+                                                <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.address.invalid && (profileForm.controls.address.dirty || profileForm.controls.address.touched)"
+                                  class="alert alert-danger">
+                                 *Address is required.
+                          </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -41,6 +50,10 @@
                                         </div>
                                         <div class="col-md-8 ">
                                             <input type="date" class="form-control " formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
+                                            <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.dateOfBirth.invalid && (profileForm.controls.dateOfBirth.dirty || profileForm.controls.dateOfBirth.touched)"
+                                            class="alert alert-danger">
+                                           *Date of Birth is required.
+                                    </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -51,6 +64,10 @@
                                         </div>
                                         <div class="col-md-8 ">
                                             <input type="date" class="form-control " formControlName="joinedDate" [(ngModel)]="joinedDate">
+                                            <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.joinedDate.invalid && (profileForm.controls.joinedDate.dirty || profileForm.controls.joinedDate.touched)"
+                                            class="alert alert-danger">
+                                           *Join Date is required.
+                                    </div>
                                         </div>
                                     </div>
                                     <br/>
@@ -63,6 +80,10 @@
                                         <div class="col-md-8">
                                             <input type="number" class="form-control" formControlName="mobileNumber"
                                                 minlength="10" maxlength="10" placeholder="Enter Mobile Number">
+                                                <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.mobileNumber.invalid && (profileForm.controls.mobileNumber.dirty || profileForm.controls.mobileNumber.touched)"
+                                                class="alert alert-danger">
+                                               *Moble Number is required.
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -78,6 +99,10 @@
                                         <div class="col-md-8">
                                             <input type="text" class="form-control" formControlName="lastName"
                                                 placeholder="Enter Last Name">
+                                                <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.lastName.invalid && (profileForm.controls.lastName.dirty || profileForm.controls.lastName.touched)"
+                                                class="alert alert-danger">
+                                               *Last Name is required.
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -89,6 +114,10 @@
                                         <div class="col-md-8">
                                             <input type="text" class="form-control" formControlName="nic" minlength="10"
                                                 maxlength="12" placeholder="Enter NIC">
+                                                <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.nic.invalid && (profileForm.controls.nic.dirty || profileForm.controls.nic.touched)"
+                                                class="alert alert-danger">
+                                               *NIC is required.
+                                        </div>
                                         </div>
                                     </div><br>
                                     <div class="col-md-12 row form-group gender-margin">
@@ -100,6 +129,10 @@
                                         <div class="col-md-8">
                                             <input type="radio" value="1" [checked]="isTrueMale"  formControlName="genderId"><span> Male</span>&nbsp;&nbsp;
                                             <input type="radio" value="2" [checked]="isTrueFemale"  formControlName="genderId"><span> Female</span>
+                                            <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.genderId.invalid && (profileForm.controls.genderId.dirty || profileForm.controls.genderId.touched)"
+                                            class="alert alert-danger">
+                                           *Gender is required.
+                                    </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -118,6 +151,10 @@
                                               <label>
                                                 <input type="checkbox" id="checkbox-3" value="value-3" (change)="onCheckChange(profileForm.value.sportsId,3)" formControlName="sportsId">&nbsp; Gym
                                               </label><br/>
+                                              <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.sportsId.invalid && (profileForm.controls.sportsId.dirty || profileForm.controls.sportsId.touched)"
+                                              class="alert alert-danger">
+                                             *Sport is required.
+                                      </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 row form-group">
@@ -129,6 +166,10 @@
                                         <div class="col-md-8">
                                             <input type="number" class="form-control" formControlName="landPhoneNumber" minlength="10"
                                                 maxlength="10" placeholder="Enter Land Phone Number">
+                                                <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.landPhoneNumber.invalid && (profileForm.controls.landPhoneNumber.dirty || profileForm.controls.landPhoneNumber.touched)"
+                                              class="alert alert-danger">
+                                             *Landphone number is required.
+                                      </div>  
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +186,7 @@
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
                                     <!-- <button class="btn btn-dark button-size" (click)="SaveEmployee(profileForm.value)">Next</button> -->
-                                    <button class="btn btn-dark button-size" (click)="tabset.select('mesurements')">Next</button>
+                                    <button class="btn btn-dark button-size" (click)="firstNext('mesurements')">Next</button>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +197,7 @@
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab title="Mesurements" id="mesurements">
+    <ngb-tab title="Mesurements" id="tab2">
       <ng-template ngbTabContent>
         <div class="row" style="padding-top:18px">
             <div class="col-md-1"></div>
@@ -308,7 +349,7 @@
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab title="Reg. Fee" id="reg.fee" [disabled]="disableFeeTab">
+    <ngb-tab title="Reg. Fee" id="tab3" [disabled]="disableFeeTab">
       <ng-template ngbTabContent>
         <div class="row">
             <div class="col-md-1"></div>

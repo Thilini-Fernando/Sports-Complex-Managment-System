@@ -30,7 +30,7 @@ export class ViewMemberComponent implements OnInit {
   loadData() {
     this.memberService.getMemberDetails().subscribe(data => {
 
-      this.memberList = data.result
+      this.memberList = data.result.reverse();
       this.memberList.forEach(element => {
         if (element.genderId == 1)
           element.gender = 'Male'
