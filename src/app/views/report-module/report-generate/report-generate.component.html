@@ -14,6 +14,10 @@
                     <div class="col-md-8 ">
                         <input type="date" class="form-control " [(ngModel)]="fromdate" 
                           formControlName="fromdate">
+                          <div style="background-color: white;border-color: white;color: red" *ngIf="reportForm.controls.fromdate.invalid && (reportForm.controls.fromdate.dirty || reportForm.controls.fromdate.touched)"
+                          class="alert alert-danger">
+                         *From Date is required.
+                  </div>
                     </div>
                 </div>
                 <div class="row col-md-6">
@@ -25,6 +29,10 @@
                     <div class="col-md-8 ">
                         <input type="date" class="form-control " [(ngModel)]="todate" 
                           formControlName="todate">
+                          <div style="background-color: white;border-color: white;color: red" *ngIf="reportForm.controls.todate.invalid && (reportForm.controls.todate.dirty || reportForm.controls.todate.touched)"
+                          class="alert alert-danger">
+                         *To Date is required.
+                  </div>
                     </div>
                 </div>
                
@@ -39,12 +47,17 @@
                     </label>
                 </div>
                 <div class="col-md-8 ">
-                    <select class="custom-select" formControlName="todate">
-                        <option value="" disabled>Report type</option>
-                        <option>type1</option>
-                        <option>type2</option>
+                    <select class="custom-select" formControlName="type" (change)="selectType($event)" >
+                        <option disabled>Report type</option>
+                        <option>payment_report</option>
+                        <option>member_report</option>
+                        <option>emp_report</option>
                       
                     </select>
+                    <div style="background-color: white;border-color: white;color: red" *ngIf="reportForm.controls.type.invalid && (reportForm.controls.type.dirty || reportForm.controls.type.touched)"
+                    class="alert alert-danger">
+                   *Type is required.
+            </div>
                 </div>
                
             </div>
@@ -53,7 +66,7 @@
     </div>
     <div class="card-footer">
         <div class="row" style="float: right;">
-            <button style="margin-right: 70px;" class="btn btn-dark button-size">Print</button>
+            <button style="margin-right: 70px;" class="btn btn-dark button-size" (click)="generatePdf()">Print</button>
         </div>
     </div>
 </div>

@@ -33,4 +33,8 @@ export class PaymentService {
 
   }
 
+  reportGeneration(fromDate,toDate,type){
+    return this.http.get<any>(`${this.global.base_url}` + `report/fromdate/${fromDate}/todate/${toDate}/type/${type}`);
+  }
+
 }
