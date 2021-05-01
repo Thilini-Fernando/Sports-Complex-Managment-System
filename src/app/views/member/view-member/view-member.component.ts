@@ -42,7 +42,7 @@ export class ViewMemberComponent implements OnInit {
   }
   content: any
   ViewMore(memberId) {
-
+console.log("memberId",memberId)
     this.memberService.getMemberWiseDetails(memberId).subscribe(data => {
       console.log("dataaaa", data)
       this.content = data.result.measurement
