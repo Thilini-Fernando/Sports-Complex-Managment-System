@@ -10,3 +10,6 @@
 .gender-margin{
     margin-bottom: 20px;
 }
+.my-disable{
+    pointer-events:none;
+}

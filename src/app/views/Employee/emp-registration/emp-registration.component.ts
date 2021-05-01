@@ -53,8 +53,11 @@ export class EmpRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (Number.isNaN(this.empId) == false)
+    if (Number.isNaN(this.empId) == false){
+      this.isUpdate = true
       this.loadEmployees()
+    }
+     
 
   }
 
@@ -90,8 +93,8 @@ export class EmpRegistrationComponent implements OnInit {
         designation: this.employeeListNew.designation,
         mobilenumber: this.employeeListNew.mobileNumber,
         landphone: this.employeeListNew.landPhoneNumber,
-        username:this.employeeListNew.userName,
-        password:this.employeeListNew.password,
+        username: this.employeeListNew.userName,
+        password: this.employeeListNew.password,
       });
 
       this.selectedGender = this.employeeListNew.genderName
@@ -101,6 +104,7 @@ export class EmpRegistrationComponent implements OnInit {
     })
   }
 
+  isUpdate:boolean = false
   SaveEmployee() {
     if (this.profileForm.invalid) {
       this.toastr.warning("Please fill all details..")
@@ -117,7 +121,7 @@ export class EmpRegistrationComponent implements OnInit {
           this.empObj.joinedDate = this.profileForm.value.joindate,
           this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
           this.empObj.landPhoneNumber = this.profileForm.value.landphone
-        this.empObj.designation = this.designation
+        this.empObj.designation = this.profileForm.value.designation
         this.empObj.userName = this.profileForm.value.username
         this.empObj.password = this.profileForm.value.password
 
@@ -133,6 +137,7 @@ export class EmpRegistrationComponent implements OnInit {
         })
 
       } else {
+        
         this.empObj.id = this.empId,
           this.empObj.firstName = this.profileForm.value.firstName,
           this.empObj.lastName = this.profileForm.value.lastName,
@@ -143,10 +148,11 @@ export class EmpRegistrationComponent implements OnInit {
           this.empObj.joinedDate = this.profileForm.value.joindate,
           this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
           this.empObj.landPhoneNumber = this.profileForm.value.landphone
-        this.empObj.designation = this.designation
+        this.empObj.designation = this.profileForm.value.designation
         this.empObj.userName = this.profileForm.value.username
         this.empObj.password = this.profileForm.value.password
 
+        console.log("updateeee",this.empObj)
         this.empService.UpdateEmployeeDetails(this.empObj).subscribe(data => {
           this.toastr.success("Successfully updated..!")
           this.profileForm.reset()

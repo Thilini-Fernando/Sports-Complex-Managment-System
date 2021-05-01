@@ -134,7 +134,7 @@
                                 </div>
                                 </div>
                             </div><br>
-                            <div class="col-md-12 row form-group gender-margin">
+                            <div class="col-md-12 row form-group gender-margin" [hidden]="isUpdate"  >
                                 <div class="col-md-4 form-label">
                                     <label>
                                         <strong>Gender</strong>
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <input type="radio" value="1" formControlName="gender"
-                                        [checked]="selectedGender === 'Male'"><span>
+                                        [checked]="selectedGender === 'Male'" ><span>
                                         Male</span>&nbsp;&nbsp;
                                     <input type="radio" value="2" formControlName="gender"
                                         [checked]="selectedGender === 'Female'"><span> Female</span>
