@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LognUser } from '../../Models/member-model';
 import { MemberService } from '../../Services/member.service';
 
@@ -11,7 +12,7 @@ import { MemberService } from '../../Services/member.service';
 export class LoginComponent implements OnInit {
  loginUser:LognUser = new LognUser();
 
-  constructor(public router: Router,private memberService: MemberService,) { 
+  constructor(public router: Router,private memberService: MemberService, public toastr: ToastrService) { 
     
   }
 
@@ -21,9 +22,13 @@ export class LoginComponent implements OnInit {
   Login(){
     console.log("uuuuuuuuuuuuuuuuu",this.loginUser)
     this.memberService.loginUser(this.loginUser).subscribe(data=>{
-console.log("llllll", data)
+      if(data.result.success == false){
+        this.toastr.error("Invalid login details")
+      }else{
+        this.router.navigate(["/dashboard"])
+      }
     })
-    this.router.navigate(["/dashboard"])
+  
   }
 
 }

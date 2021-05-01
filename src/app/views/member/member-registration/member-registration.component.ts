@@ -33,7 +33,8 @@ export class MemberRegistrationComponent implements OnInit {
   profileForm: FormGroup
 
 
-  constructor(private memberService: MemberService, private route: ActivatedRoute, private datepipe: DatePipe, public toastr: ToastrService) {
+  constructor(private memberService: MemberService, private route: ActivatedRoute, 
+    private datepipe: DatePipe, public toastr: ToastrService) {
     this.memberId = +this.route.snapshot.paramMap.get('id')
     this.profileForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),

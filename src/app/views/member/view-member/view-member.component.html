@@ -6,8 +6,8 @@
         <table datatable class="row-border hover">
             <thead>
                 <tr>
+                    <th>Member Id</th>
                     <th>First name</th>
-                    <th>Last name</th>
                     <th>Address</th>
                     <th>NIC</th>                 
                     <th>Date of Birth</th>
@@ -21,8 +21,8 @@
             </thead>
             <tbody>
                 <tr *ngFor ="let member of memberList">
+                    <td>{{member.memberId}}</td>
                     <td>{{member.firstName}}</td>
-                    <td>{{member.lastName}}</td>
                     <td>{{member.address}}</td>
                     <td>{{member.nic}}</td>
                     <td>{{member.dateOfBirth}}</td>

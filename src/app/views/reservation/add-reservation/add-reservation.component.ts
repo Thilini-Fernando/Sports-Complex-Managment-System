@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ReservationModel } from '../../../Models/reservation-model';
 import { ReservationService } from '../../../Services/reservation.service';
@@ -15,12 +15,12 @@ export class AddReservationComponent implements OnInit {
   sportId:number;
 
   reservationForm = new FormGroup({
-    firstName: new FormControl(''),
-    date: new FormControl(''),
-    time: new FormControl(''),
-    sport: new FormControl(''),
-    lastName: new FormControl(''),
-    contactno: new FormControl(''),
+    firstName: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
+    sport: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    contactno: new FormControl('', [Validators.required]),
   });
     
   constructor(private ReservationServc:ReservationService, public toastr: ToastrService) { }
@@ -67,23 +67,36 @@ export class AddReservationComponent implements OnInit {
   }
 
   SaveReservation(){
-    console.log("event data=====",  this.sportList);
-    this.Reservation.contactNumber = this.reservationForm.value.contactno
-    this.Reservation.firstName =  this.reservationForm.value.firstName
-    this.Reservation.lastNme = this.reservationForm.value.lastName
-    this.Reservation.date = this.reservationForm.value.date
-    this.Reservation.time = this.reservationForm.value.time
-
-    console.log("ReservationData",this.Reservation)
-    this.ReservationServc.insertReservationDetails(this.Reservation).subscribe(data=>{
-      console.log("aaaaaaaaaaaaaaaaaaaa", data)
-      this.toastr.success("Successfully inserted..")
-    },err=>{
-      this.toastr.error("Somethng went wrong",err)
-    },()=>{
-
-    })
+    if(this.reservationForm.invalid){
+      this.toastr.warning("Please fill all detals")
+    }else{
+      console.log("event data=====",  this.sportList);
+      this.Reservation.contactNumber = this.reservationForm.value.contactno
+      this.Reservation.firstName =  this.reservationForm.value.firstName
+      this.Reservation.lastName = this.reservationForm.value.lastName
+      this.Reservation.date = this.reservationForm.value.date
+      this.Reservation.time = this.reservationForm.value.time
+  
+      console.log("ReservationData",this.Reservation)
+      this.ReservationServc.insertReservationDetails(this.Reservation).subscribe(data=>{
+        console.log("aaaaaaaaaaaaaaaaaaaa", data)
+        this.toastr.success("Successfully inserted..")
+      },err=>{
+        this.toastr.error("Somethng went wrong",err)
+      },()=>{
+  
+      })
+    }
+   
   }
 
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
 
 }

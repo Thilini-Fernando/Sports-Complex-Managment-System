@@ -18,6 +18,10 @@
                                 <div class="col-md-8 ">
                                     <input type="text" class="form-control" formControlName="firstName"
                                         placeholder="Enter Firts Name">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="reservationForm.controls.firstName.invalid && (reservationForm.controls.firstName.dirty || reservationForm.controls.firstName.touched)"
+                                        class="alert alert-danger">
+                                       *First Name is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -27,6 +31,10 @@
                                 </div>
                                 <div class="col-md-8">
                                     <input type="date" class="form-control " formControlName="date">
+                                    <div style="background-color: white;border-color: white;color: red" *ngIf="reservationForm.controls.date.invalid && (reservationForm.controls.date.dirty || reservationForm.controls.date.touched)"
+                                    class="alert alert-danger">
+                                   *Date is required.
+                            </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -37,6 +45,10 @@
                                 </div>
                                 <div class="col-md-8 ">
                                     <input type="time" class="form-control " formControlName="time">
+                                    <div style="background-color: white;border-color: white;color: red" *ngIf="reservationForm.controls.time.invalid && (reservationForm.controls.time.dirty || reservationForm.controls.time.touched)"
+                                    class="alert alert-danger">
+                                   *Time is required.
+                            </div>
                                 </div>
                             </div>
                           
@@ -53,6 +65,10 @@
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" formControlName="lastName"
                                         placeholder="Enter Last Name">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="reservationForm.controls.lastName.invalid && (reservationForm.controls.lastName.dirty || reservationForm.controls.lastName.touched)"
+                                        class="alert alert-danger">
+                                       *Last Name is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -62,8 +78,12 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" formControlName="contactno" minlength="10"
+                                    <input type="text" class="form-control" formControlName="contactno" minlength="10"  (keypress)="keyPress($event)"
                                         maxlength="10" placeholder="Enter Contact Number">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="reservationForm.controls.contactno.invalid && (reservationForm.controls.contactno.dirty || reservationForm.controls.contactno.touched)"
+                                        class="alert alert-danger">
+                                       *Contact No is required.
+                                </div>
                                 </div>
                             </div><br>
                             <div class="col-md-12 row form-group" style="    margin-top: -20px;">
@@ -83,12 +103,15 @@
                                         <input type="checkbox" id="checkbox-3" value="value-3" (change)="onCheckChange(reservationForm.value.sport,3)" formControlName="sport">&nbsp; Gym
                                       </label><br/> -->
                                      
-                                        <select class="custom-select" (change)="selectSport($event.target.value)">
+                                        <select class="custom-select" (change)="selectSport($event.target.value)"  formControlName="sport">
                                             <option [value]="1">Badminton</option>
                                             <option [value]="2">Swmming</option>
                                             <option  [value]="3">Gym</option>
                                         </select>
-                         
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="reservationForm.controls.sport.invalid && (reservationForm.controls.sport.dirty || reservationForm.controls.sport.touched)"
+                                        class="alert alert-danger">
+                                       *Sport is required.
+                                </div>
 
                                         </div>
                                      
