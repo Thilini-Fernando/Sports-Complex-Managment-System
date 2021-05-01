@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { GlobalService } from './global.service';
 import { EmployeeModel } from '../Models/employee-model';
+import { LognUser } from '../Models/member-model';
 
 
 @Injectable({
@@ -43,5 +44,9 @@ export class MemberService {
   headers.append('Access-Control-Allow-Headers', 'X-Requested-With');
   
     return this.http.delete<any>(`${this.global.base_url}`+`member/${memberId}`);
+  }
+
+  loginUser(user:LognUser){
+    return this.http.post<any>(`${this.global.base_url}`+'member/loginUser/',user);
   }
 }

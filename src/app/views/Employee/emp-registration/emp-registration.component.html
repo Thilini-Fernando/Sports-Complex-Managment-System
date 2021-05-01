@@ -17,7 +17,13 @@
                                 </div>
                                 <div class="col-md-8 ">
                                     <input type="text" class="form-control" formControlName="firstName"
-                                        placeholder="Enter Firts Name">
+                                        placeholder="Enter Firts Name" required>
+                                    <div style="background-color: white;border-color: white;color: red"
+                                        *ngIf="profileForm.controls.firstName.invalid && ( profileForm.controls.firstName.touched)"
+                                        class="alert alert-danger">
+                                        *First Name is required.
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -27,7 +33,11 @@
                                 </div>
                                 <div class="col-md-8">
                                     <textarea type="text" class="form-control text-area" formControlName="address"
-                                        placeholder="Enter Address"></textarea>
+                                        placeholder="Enter Address" required>
+                                  </textarea>  <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.address.invalid && (profileForm.controls.address.dirty || profileForm.controls.address.touched)"
+                                  class="alert alert-danger">
+                                 *Address is required.
+                          </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -38,7 +48,11 @@
                                 </div>
                                 <div class="col-md-8 ">
                                     <input type="date" class="form-control " [(ngModel)]="dateofbirth"
-                                        [(value)]="dateofbirth" name="dateofbirth" formControlName="dateofbirth">
+                                        [(value)]="dateofbirth" name="dateofbirth" formControlName="dateofbirth" required>
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.dateofbirth.invalid && (profileForm.controls.dateofbirth.dirty || profileForm.controls.dateofbirth.touched)"
+                                        class="alert alert-danger">
+                                       *Date of Birth is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -48,7 +62,12 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8 ">
-                                    <input type="date" class="form-control " formControlName="joindate" [(ngModel)]="joinDate">
+                                    <input type="date" class="form-control " formControlName="joindate"
+                                        [(ngModel)]="joinDate" required>
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.joindate.invalid && (profileForm.controls.joindate.dirty || profileForm.controls.joindate.touched)"
+                                        class="alert alert-danger">
+                                       *Date of Birth is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -58,8 +77,27 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" formControlName="mobilenumber"
-                                    type="text" (keypress)="keyPress($event)"maxlength="10" placeholder="Enter Mobile Number">
+                                    <input class="form-control" formControlName="mobilenumber" type="text"
+                                        (keypress)="keyPress($event)" maxlength="10" placeholder="Enter Mobile Number" required>
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.mobilenumber.invalid && (profileForm.controls.mobilenumber.dirty || profileForm.controls.mobilenumber.touched)"
+                                        class="alert alert-danger">
+                                       *Moble Number is required.
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-4 form-label">
+                                    <label>
+                                        <strong>User Name</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="form-control" formControlName="username" type="text"
+                                        placeholder="Enter User Name" required>
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.username.invalid && (profileForm.controls.username.dirty || profileForm.controls.username.touched)"
+                                        class="alert alert-danger">
+                                       *Username is required.
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +112,11 @@
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" formControlName="lastName"
-                                        placeholder="Enter Last Name">
+                                        placeholder="Enter Last Name" required>
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.lastName.invalid && (profileForm.controls.lastName.dirty || profileForm.controls.lastName.touched)"
+                                        class="alert alert-danger">
+                                       *Last Name is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -85,7 +127,11 @@
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" formControlName="nic" minlength="10"
-                                        maxlength="12" placeholder="Enter NIC">
+                                        maxlength="12" placeholder="Enter NIC" required>
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.nic.invalid && (profileForm.controls.nic.dirty || profileForm.controls.nic.touched)"
+                                        class="alert alert-danger">
+                                       *NIC is required.
+                                </div>
                                 </div>
                             </div><br>
                             <div class="col-md-12 row form-group gender-margin">
@@ -95,10 +141,16 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="radio" value="1" formControlName="gender" [checked]="selectedGender === 'Male'"><span>
+                                    <input type="radio" value="1" formControlName="gender"
+                                        [checked]="selectedGender === 'Male'"><span>
                                         Male</span>&nbsp;&nbsp;
-                                    <input type="radio" value="2" formControlName="gender" [checked]="selectedGender === 'Female'"><span> Female</span>
-                                    
+                                    <input type="radio" value="2" formControlName="gender"
+                                        [checked]="selectedGender === 'Female'"><span> Female</span>
+                                        
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.gender.invalid && (profileForm.controls.gender.dirty || profileForm.controls.gender.touched)"
+                                        class="alert alert-danger">
+                                       *Gender is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -108,13 +160,17 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <select class="custom-select" (change)="selectedDesignation($event)">
+                                    <select class="custom-select" (change)="selectedDesignation($event)"  formControlName="designation">
                                         <option value="" disabled>Select Designation</option>
                                         <option>Chairman</option>
                                         <option>Manager</option>
                                         <option>Receptionist</option>
                                         <option>Trainer</option>
                                     </select>
+                                    <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.designation.invalid && (profileForm.controls.designation.dirty || profileForm.controls.designation.touched)"
+                                    class="alert alert-danger">
+                                   *Designation is required.
+                            </div>
                                 </div>
                             </div>
                             <div class="col-md-12 row form-group">
@@ -124,8 +180,28 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control" formControlName="landphone" 
-                                    type="text" (keypress)="keyPress($event)"maxlength="10" placeholder="Enter Land Phone Number">
+                                    <input class="form-control" formControlName="landphone" type="text"
+                                        (keypress)="keyPress($event)" maxlength="10"
+                                        placeholder="Enter Land Phone Number">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.landphone.invalid && (profileForm.controls.landphone.dirty || profileForm.controls.landphone.touched)"
+                                        class="alert alert-danger">
+                                       *Landphone number is required.
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-4 form-label">
+                                    <label>
+                                        <strong>Password</strong>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="form-control" formControlName="password" type="text"
+                                        placeholder="Enter Password">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.password.invalid && (profileForm.controls.password.dirty || profileForm.controls.password.touched)"
+                                        class="alert alert-danger">
+                                       *Password is required.
+                                </div>
                                 </div>
                             </div>
                         </div>

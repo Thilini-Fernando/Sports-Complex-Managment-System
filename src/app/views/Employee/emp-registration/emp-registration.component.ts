@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeModel } from '../../../Models/employee-model';
@@ -18,26 +18,29 @@ export class EmpRegistrationComponent implements OnInit {
   empObj: EmployeeModel = new EmployeeModel()
   @Input() view: boolean;
   employeeList = [];
-  employeeListNew :any;
+  employeeListNew: any;
   filterList = [];
   empId: number = 0;
   dateofbirth: string;
-  joinDate:string;
+  joinDate: string;
   formname: string = 'Employee Registration';
   savebtn: string = 'Submit';
 
 
 
   profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormControl(''),
-    dateofbirth: new FormControl(''),
-    nic: new FormControl(''),
-    gender: new FormControl(''),
-    joindate: new FormControl(''),
-    mobilenumber: new FormControl(''),
-    landphone: new FormControl('')
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    dateofbirth: new FormControl('', [Validators.required]),
+    nic: new FormControl('', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    joindate: new FormControl('', [Validators.required]),
+    mobilenumber: new FormControl('', [Validators.required]),
+    landphone: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+    designation: new FormControl('', [Validators.required]),
   });
 
   constructor(private empService: EmployeeService, private viewEmpService: ViewemployeeService, private route: ActivatedRoute,
@@ -55,7 +58,7 @@ export class EmpRegistrationComponent implements OnInit {
 
   }
 
-  selectedGender:boolean;
+  selectedGender: boolean;
   loadEmployees() {
     this.formname = 'Update Employee'
     this.savebtn = 'Update'
@@ -70,88 +73,102 @@ export class EmpRegistrationComponent implements OnInit {
       this.employeeList.forEach(element => {
         if (element.id == this.empId) {
           this.employeeListNew = element
-         
+
         }
 
 
       })
 
       this.profileForm.patchValue({
-        firstName:  this.employeeListNew.firstName,
-        lastName:  this.employeeListNew.lastName,
-        address:  this.employeeListNew.address,
-        nic:  this.employeeListNew.nic,
+        firstName: this.employeeListNew.firstName,
+        lastName: this.employeeListNew.lastName,
+        address: this.employeeListNew.address,
+        nic: this.employeeListNew.nic,
         dateofbirth: this.employeeListNew.dateOfBirth,
-        gender:  this.employeeListNew.genderName,
-        joindate:  this.employeeListNew.joindate,
+        gender: this.employeeListNew.genderName,
+        joindate: this.employeeListNew.joindate,
         designation: this.employeeListNew.designation,
-        mobilenumber:  this.employeeListNew.mobileNumber,
-        landphone:  this.employeeListNew.landPhoneNumber
+        mobilenumber: this.employeeListNew.mobileNumber,
+        landphone: this.employeeListNew.landPhoneNumber,
+        username:this.employeeListNew.userName,
+        password:this.employeeListNew.password,
       });
 
-      this.selectedGender =   this.employeeListNew.genderName
-      console.log("222",this.employeeListNew)
-      this.dateofbirth = this.datepipe.transform( this.employeeListNew.dateOfBirth, 'yyyy-MM-dd')
-      this.joinDate = this.datepipe.transform( this.employeeListNew.joinedDate, 'yyyy-MM-dd')
+      this.selectedGender = this.employeeListNew.genderName
+      console.log("222", this.employeeListNew)
+      this.dateofbirth = this.datepipe.transform(this.employeeListNew.dateOfBirth, 'yyyy-MM-dd')
+      this.joinDate = this.datepipe.transform(this.employeeListNew.joinedDate, 'yyyy-MM-dd')
     })
   }
 
   SaveEmployee() {
-
-    if (Number.isNaN(this.empId) == true) {
-        this.empObj.firstName = this.profileForm.value.firstName,
-        this.empObj.lastName = this.profileForm.value.lastName,
-        this.empObj.address = this.profileForm.value.address,
-        this.empObj.dateOfBirth = this.profileForm.value.dateofbirth,
-        this.empObj.nic = this.profileForm.value.nic,
-        this.empObj.genderId = Number(this.profileForm.value.gender),
-        this.empObj.joinedDate = this.profileForm.value.joindate,
-        this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
-        this.empObj.landPhoneNumber = this.profileForm.value.landphone
-        this.empObj.designation = this.designation
-
-      console.log("EMPLOYEEEE",this.empObj)
-      this.empService.InsertEmployeeDetails(this.empObj).subscribe(data => {
-        this.toastr.success("Successfully inserted..!")
-        this.profileForm.reset()
-        
-      }, err => {
-        this.toastr.error("Something went wrong..!")
-      }, () => {
-
-      })
-
+    if (this.profileForm.invalid) {
+      this.toastr.warning("Please fill all details..")
     } else {
-        this.empObj.id = this.empId,
+
+
+      if (Number.isNaN(this.empId) == true) {
         this.empObj.firstName = this.profileForm.value.firstName,
-        this.empObj.lastName = this.profileForm.value.lastName,
-        this.empObj.address = this.profileForm.value.address,
-        this.empObj.dateOfBirth = this.profileForm.value.dateofbirth,
-        this.empObj.nic = this.profileForm.value.nic,
-        this.empObj.genderId = Number(this.profileForm.value.gender),
-        this.empObj.joinedDate = this.profileForm.value.joindate,
-        this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
-        this.empObj.landPhoneNumber = this.profileForm.value.landphone
+          this.empObj.lastName = this.profileForm.value.lastName,
+          this.empObj.address = this.profileForm.value.address,
+          this.empObj.dateOfBirth = this.profileForm.value.dateofbirth,
+          this.empObj.nic = this.profileForm.value.nic,
+          this.empObj.genderId = Number(this.profileForm.value.gender),
+          this.empObj.joinedDate = this.profileForm.value.joindate,
+          this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
+          this.empObj.landPhoneNumber = this.profileForm.value.landphone
         this.empObj.designation = this.designation
+        this.empObj.userName = this.profileForm.value.username
+        this.empObj.password = this.profileForm.value.password
 
-      this.empService.UpdateEmployeeDetails(this.empObj).subscribe(data => {
-        this.toastr.success("Successfully updated..!")
-        this.profileForm.reset()
-      }, err => {
-        this.toastr.error("Something went wrong..!")
-      }, () => {
+        console.log("EMPLOYEEEE", this.empObj)
+        this.empService.InsertEmployeeDetails(this.empObj).subscribe(data => {
+          this.toastr.success("Successfully inserted..!")
+          this.profileForm.reset()
 
-      })
+        }, err => {
+          this.toastr.error("Something went wrong..!")
+        }, () => {
+
+        })
+
+      } else {
+        this.empObj.id = this.empId,
+          this.empObj.firstName = this.profileForm.value.firstName,
+          this.empObj.lastName = this.profileForm.value.lastName,
+          this.empObj.address = this.profileForm.value.address,
+          this.empObj.dateOfBirth = this.profileForm.value.dateofbirth,
+          this.empObj.nic = this.profileForm.value.nic,
+          this.empObj.genderId = Number(this.profileForm.value.gender),
+          this.empObj.joinedDate = this.profileForm.value.joindate,
+          this.empObj.mobileNumber = this.profileForm.value.mobilenumber,
+          this.empObj.landPhoneNumber = this.profileForm.value.landphone
+        this.empObj.designation = this.designation
+        this.empObj.userName = this.profileForm.value.username
+        this.empObj.password = this.profileForm.value.password
+
+        this.empService.UpdateEmployeeDetails(this.empObj).subscribe(data => {
+          this.toastr.success("Successfully updated..!")
+          this.profileForm.reset()
+        }, err => {
+          this.toastr.error("Something went wrong..!")
+        }, () => {
+
+        })
+      }
+
     }
+
+
   }
 
-  ResetPage(){
+  ResetPage() {
     this.profileForm.reset()
   }
 
-  designation:string;
-  selectedDesignation(event){
-    console.log("ooooooooo",event.target.value)
+  designation: string;
+  selectedDesignation(event) {
+    console.log("ooooooooo", event.target.value)
     this.designation = event.target.value
   }
 

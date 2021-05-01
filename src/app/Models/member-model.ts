@@ -37,4 +37,11 @@ export class RegistrationFees{
     date:Date;
 }
 
+export class LognUser{
+    userName:string;
+    password:string;
+    role:string='';
+    isSuccess:boolean=false;
+}
+
 

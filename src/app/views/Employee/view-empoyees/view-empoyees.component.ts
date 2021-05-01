@@ -71,6 +71,7 @@ export class ViewEmpoyeesComponent implements OnInit {
   }
 
   DeleteEmployee(){
+    console.log("deletee",this.empId)
   this.empServce.DeleteEmployeeDetails(this.empId).subscribe(data=>{
   this.toastr.success("Successfully deleted..!")  
   },err=>{

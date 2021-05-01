@@ -25,7 +25,7 @@ export class EmployeeService {
     headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT');
     headers.append('Accept', 'application/json');
     headers.append('Access-Control-Allow-Headers', 'X-Requested-With');
-    return this.http.get<number>(`${this.global.base_url}`+'employeeDelete?Id=${Id}')
+    return this.http.delete<number>(`${this.global.base_url}`+`employee?employeeId=${id}`)
   }
 
   Test() {

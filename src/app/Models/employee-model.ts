@@ -10,6 +10,9 @@ export class EmployeeModel {
     mobileNumber:number;
     landPhoneNumber:number;
     designation:string;
+    userName:string;
+    password:string;
+    userId:number = 1
     
 }
 
