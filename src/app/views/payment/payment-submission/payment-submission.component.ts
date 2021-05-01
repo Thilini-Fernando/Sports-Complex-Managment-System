@@ -34,7 +34,7 @@ export class PaymentSubmissionComponent implements OnInit
   GetMemberDetails(){
     this.memberService.getMemberWiseDetails(this.paymentForm.value.memberId).subscribe(data => {
 
-      this.Name = data.result.firstName + ''+data.result.lastName
+      this.Name = data.result.firstName + ' '+data.result.lastName
       this.JoinedDate = data.result.joinedDate
       this.NIC = data.result.nic
       this.Sports = data.result.sportName

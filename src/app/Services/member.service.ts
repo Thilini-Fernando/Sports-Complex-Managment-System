@@ -18,12 +18,12 @@ export class MemberService {
   constructor(private http:HttpClient, private global:GlobalService) { }
 
   insertMemberDetails(memberVO){
-    console.log("BBBBBBB",memberVO)
+    console.log("BBBBBBBInSERT",memberVO)
     return this.http.post<any>(`${this.global.base_url}`+'member/',memberVO);
   }
 
   updateMemberDetails(memberVO){
-    console.log("BBBBBBB",memberVO)
+    console.log("BBBBBBBUPDATe",memberVO)
     return this.http.put<any>(`${this.global.base_url}`+'member/',memberVO);
   }
 

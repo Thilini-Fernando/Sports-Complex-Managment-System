@@ -156,7 +156,7 @@ export class MemberRegistrationComponent implements OnInit {
     this.memberModel.mobileNumber = formDate.mobileNumber;
     this.memberModel.registrationFee = formDate.registrationFee;
     this.memberModel.nic = formDate.nic;
-    this.memberModel.sportsId = this.sportList
+    this.memberModel.sportsId1 = this.sportList
     // this.memberModel.sportId = this.sportId;
 
     this.memberModel.measurement = [];
@@ -245,7 +245,7 @@ export class MemberRegistrationComponent implements OnInit {
         this.memberModel.mobileNumber = formDate.mobileNumber;
         this.memberModel.registrationFee = formDate.registrationFee;
         this.memberModel.nic = formDate.nic;
-        this.memberModel.sportsId = this.sportList
+        this.memberModel.sportsId1 = this.sportList
         // this.memberModel.sportId = this.sportId;
   
         this.memberModel.measurement = [];
