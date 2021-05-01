@@ -15,8 +15,12 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8 ">
-                                    <input type="text" class="form-control" formControlName="memberId"
+                                    <input type="text" class="form-control" formControlName="name"
                                         placeholder="Enter Name">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="paymentForm.controls.name.invalid && (paymentForm.controls.name.dirty || paymentForm.controls.name.touched)"
+                                        class="alert alert-danger">
+                                       *Name is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-6 row form-group">
@@ -27,6 +31,10 @@
                                 </div>
                                 <div class="col-md-8 ">
                                     <input type="date" class="form-control " formControlName="paymentDate">
+                                    <div style="background-color: white;border-color: white;color: red" *ngIf="paymentForm.controls.paymentDate.invalid && (paymentForm.controls.paymentDate.dirty || paymentForm.controls.paymentDate.touched)"
+                                    class="alert alert-danger">
+                                   *Payment Date is required.
+                            </div>
                                 </div>
                             </div>
                            
@@ -38,8 +46,12 @@
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control text-area" formControlName="amount"
+                                    <input type="number" class="form-control text-area" formControlName="amount"
                                         placeholder="Enter Amount">
+                                        <div style="background-color: white;border-color: white;color: red" *ngIf="paymentForm.controls.amount.invalid && (paymentForm.controls.amount.dirty || paymentForm.controls.amount.touched)"
+                                        class="alert alert-danger">
+                                       *Amount is required.
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-6 row form-group">
@@ -54,6 +66,34 @@
                                 </div>
                             </div>
                     </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6 row form-group">
+                            <div class="col-md-3 form-label">
+                                <label><strong> NIC:</strong>
+                                </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control text-area" formControlName="nic"  minlength="10"   type="text"  maxlength="12"
+                                    placeholder="Enter NIC">
+                                    <div style="background-color: white;border-color: white;color: red" *ngIf="paymentForm.controls.nic.invalid && (paymentForm.controls.nic.dirty || paymentForm.controls.nic.touched)"
+                                    class="alert alert-danger">
+                                   *NIC is required.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 row form-group">
+                            <div class="col-md-3 form-label">
+                                <label>
+                                    <strong> Mobile Number:</strong>
+                                </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" formControlName="mobile"  minlength="10"   type="text" (keypress)="keyPress($event)"  maxlength="10"
+                                    placeholder="Enter Payment Status">
+                                   
+                            </div>
+                        </div>
+                </div>
                 </form>
             </div>
             <div class="card-footer">
@@ -61,11 +101,11 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-6 row">
                         <div class="col-md-9">
-                            <button class="btn btn-dark button-size">Reset</button>
+                            <button class="btn btn-dark button-size" (click)="ResetForm()">Reset</button>
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
-                            <button class="btn btn-dark button-size" (click)="SaveEmployee()">Submit</button>
+                            <button class="btn btn-dark button-size" (click)="SavePayment()">Submit</button>
                         </div>
                   
                 </div>

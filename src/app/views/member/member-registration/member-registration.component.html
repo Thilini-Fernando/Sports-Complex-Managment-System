@@ -163,7 +163,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="number" class="form-control" formControlName="landPhoneNumber" minlength="10"   type="text" (keypress)="keyPress($event)" maxlength="10" placeholder="Enter Land Phone Number">
+                                            <input  class="form-control" formControlName="landPhoneNumber" minlength="10"   type="text" (keypress)="keyPress($event)"  maxlength="10" placeholder="Enter Land Phone Number">
                                                 <div style="background-color: white;border-color: white;color: red" *ngIf="profileForm.controls.landPhoneNumber.invalid && (profileForm.controls.landPhoneNumber.dirty || profileForm.controls.landPhoneNumber.touched)"
                                               class="alert alert-danger">
                                              *Landphone number is required.
