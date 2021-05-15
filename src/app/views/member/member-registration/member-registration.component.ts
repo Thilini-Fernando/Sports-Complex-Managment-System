@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap/tabset/tabset.module';
 import { ToastrService } from 'ngx-toastr';
-import { MemberModel, Mesurements, RegistrationFees } from '../../../Models/member-model';
+import { MemberModel, Mesurements, RegistrationFees, SportId } from '../../../Models/member-model';
 import { MemberService } from '../../../Services/member.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { MemberService } from '../../../Services/member.service';
 export class MemberRegistrationComponent implements OnInit {
 
   isSecondTab: boolean = false
-  sportList = [];
+  sportList:Array<SportId> = [];
   memberModel = new MemberModel();
   measurementModel = new Mesurements();
   regFeeModel = new RegistrationFees();
@@ -130,6 +130,7 @@ export class MemberRegistrationComponent implements OnInit {
   }
 
   SaveMember(formDate) {
+    console.log("KKKKKKKKKKKKKKKKKKK",this.sportList)
     this.measurementModel.chest = formDate.chest
     this.measurementModel.abdomen = formDate.abdomen
     this.measurementModel.hips = formDate.hips
@@ -157,7 +158,7 @@ export class MemberRegistrationComponent implements OnInit {
     this.memberModel.mobileNumber = formDate.mobileNumber;
     this.memberModel.registrationFee = formDate.registrationFee;
     this.memberModel.nic = formDate.nic;
-    this.memberModel.sportsId1 = this.sportList
+    this.memberModel.sportsIdList = this.sportList
     // this.memberModel.sportId = this.sportId;
 
     this.memberModel.measurement = [];
@@ -186,28 +187,28 @@ export class MemberRegistrationComponent implements OnInit {
 
   onCheckChange(event, id) {
     if (event && id == 1) {
-      this.sportList.push(1);
+      this.sportList.push({sportsId:1});
       this.sportId = 1;
     } else if (!event && id == 1) {
-      const index = this.sportList.indexOf(1);
+      const index = this.sportList.indexOf({sportsId:1});
       if (index > -1) {
         this.sportList.splice(index, 1);
         this.sportId = 1;
       }
     } else if (event && id == 2) {
-      this.sportList.push(2);
+      this.sportList.push({sportsId:2});
       this.sportId = 2;
     } else if (!event && id == 2) {
-      const index = this.sportList.indexOf(2);
+      const index = this.sportList.indexOf({sportsId:2});
       if (index > -1) {
         this.sportList.splice(index, 1);
         this.sportId = 1;
       }
     } else if (event && id == 3) {
-      this.sportList.push(3);
+      this.sportList.push({sportsId:3});
       this.sportId = 3;
     } else if (!event && id == 3) {
-      const index = this.sportList.indexOf(3);
+      const index = this.sportList.indexOf({sportsId:3});
       if (index > -1) {
         this.sportList.splice(index, 1);
         this.sportId = 1;
@@ -246,7 +247,7 @@ export class MemberRegistrationComponent implements OnInit {
         this.memberModel.mobileNumber = formDate.mobileNumber;
         this.memberModel.registrationFee = formDate.registrationFee;
         this.memberModel.nic = formDate.nic;
-        this.memberModel.sportsId1 = this.sportList
+        this.memberModel.sportsIdList = this.sportList
         // this.memberModel.sportId = this.sportId;
   
         this.memberModel.measurement = [];

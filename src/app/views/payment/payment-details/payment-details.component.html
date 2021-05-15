@@ -20,7 +20,7 @@
             <tbody>
               <tr *ngFor="let data of PaymentDetails">
                 <td style=" text-align: center;" >{{data.memberId}}</td>
-                <td>{{data.memberName}}</td>
+                <td>{{data.MemberName}}</td>
                 <td>{{data.status}}</td>
                 <td  style=" text-align: center;" >{{data.amount | number: '2.2'}}</td>
                 <td>{{data.date}}</td>
@@ -63,7 +63,7 @@
 
 <div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
-<div class="modal-dialog modal-lg" role="document">
+<div class="modal-dialog modal-md" role="document">
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Delete Payment</h4>

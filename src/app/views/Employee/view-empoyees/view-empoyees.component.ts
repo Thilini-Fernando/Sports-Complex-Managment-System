@@ -78,7 +78,7 @@ export class ViewEmpoyeesComponent implements OnInit {
   },err=>{
     this.toastr.error("Something went wrong..!")  
   },()=>{
-
+    this.ViewEmployee();
   })
   }
 

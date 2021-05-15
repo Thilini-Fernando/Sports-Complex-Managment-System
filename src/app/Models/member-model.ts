@@ -11,10 +11,14 @@ export class MemberModel {
     mobileNumber:number;
     landPhoneNumber:number;
     // sportId:number;
-    sportsId1:any[];
+    sportsIdList:any[];
     measurement:Mesurements[];
     registrationFee:RegistrationFees[];
     gender?:string;
+}
+
+export class SportId{
+    sportsId:number
 }
 
 export class Mesurements {

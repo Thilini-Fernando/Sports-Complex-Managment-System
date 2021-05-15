@@ -5,6 +5,10 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { PaymentService } from '../../../Services/payment.service';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import jspdf from 'jspdf';
+import html2canvas from 'html2canvas';  
+import { PaymentModel } from '../../../Models/payment-model';
+
 
 @Component({
   selector: 'app-report-generate',
@@ -15,6 +19,8 @@ export class ReportGenerateComponent implements OnInit {
   fromdate:string;
   todate:string;
   reportForm:FormGroup;
+  paymentData:PaymentModel[] = []; 
+  
 
   constructor(private paymentService:PaymentService, public toastr: ToastrService) { }
 
@@ -27,22 +33,33 @@ export class ReportGenerateComponent implements OnInit {
   }
 
   generatePdf(){
-    if(this.reportForm.invalid){
-      console.log("gggggg",this.reportForm)
-      this.toastr.warning("Please fill all details")
-    }else{
-      this.paymentService.reportGeneration( this.reportForm.value.fromdate, this.reportForm.value.todate, this.reportForm.value.type).subscribe(data=>{
-        console.log("XXXXXXXXXX", data)
-      })
-      const documentDefinition = { content: 'This is an sample PDF printed with pdfMake' };
-      // pdfMake.createPdf(documentDefinition).open();
-    }
-
+  
+    console.log("NNNNNNNNN", this.paymentData)
+    var data = document.getElementById('contentToConvert');  
+    html2canvas(data).then(canvas => {  
+      // Few necessary setting options  
+      var imgWidth = 208;   
+      var pageHeight = 295;    
+      var imgHeight = canvas.height * imgWidth / canvas.width;  
+      var heightLeft = imgHeight;  
+  
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
+      var position = 0;  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.save('MYPdf.pdf'); // Generated PDF   
+    });  
  
    }
 
    selectType(e){
+ 
     this.reportForm.controls.type.setValue(e.target.value);
+    this.paymentService.reportGeneration( this.reportForm.value.fromdate, this.reportForm.value.todate, this.reportForm.value.type).subscribe(data=>{
+      console.log("XXXXXXXXXX", this.paymentData)
+      this.paymentData = data.result.paymentVOList
+     
+    })
    }
 
 }
