@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     children:[{
-      path:'addreservation',
+      path:'addreservation/:id',
       component:AddReservationComponent
     },
     {

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ReservationModel } from '../../../Models/reservation-model';
 import { ReservationService } from '../../../Services/reservation.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-reservation',
@@ -13,6 +14,7 @@ export class AddReservationComponent implements OnInit {
   sportList = []
   Reservation:ReservationModel = new ReservationModel();
   sportId:number;
+  reservatonId:number;
 
   reservationForm = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
@@ -23,7 +25,10 @@ export class AddReservationComponent implements OnInit {
     contactno: new FormControl('', [Validators.required]),
   });
     
-  constructor(private ReservationServc:ReservationService, public toastr: ToastrService) { }
+  constructor(private ReservationServc:ReservationService, public toastr: ToastrService,private route: ActivatedRoute, ) {
+    this.reservatonId = +this.route.snapshot.paramMap.get('id')
+
+   }
 
   ngOnInit(): void {
   }

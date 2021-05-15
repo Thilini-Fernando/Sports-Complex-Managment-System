@@ -22,10 +22,10 @@
                   <td>{{data.date}}</td>
                   <td>{{data.time}}</td>
                   <td>{{data.contactNumber}}</td>
-                    <td (click)="editReservation(employee)">
+                    <td (click)="editReservation(data.reservationId)">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </td>
-                    <td (click)="deleteReservation()">
+                    <td (click)="deleteReservation(data.reservationId)">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </td>
                 </tr>

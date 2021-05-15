@@ -3,6 +3,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { ReservationModel } from '../../../Models/reservation-model';
 import { ReservationService } from '../../../Services/reservation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-reservation',
@@ -13,7 +14,7 @@ export class ViewReservationComponent implements OnInit {
   reservationList:ReservationModel[]
   @ViewChild('deleteModal') public deleteModal: ModalDirective;
 
-  constructor(private reservationService:ReservationService, public toastr: ToastrService) { }
+  constructor(private reservationService:ReservationService, public toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
@@ -43,6 +44,10 @@ export class ViewReservationComponent implements OnInit {
     }, () => {
 
     })
+  }
+
+  editReservation(reservationId){
+    this.router.navigate(['/reservation/addreservation/' + reservationId]);
   }
 
 }
