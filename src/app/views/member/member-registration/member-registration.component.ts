@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap/tabset/tabset.module';
 import { ToastrService } from 'ngx-toastr';
@@ -33,7 +33,7 @@ export class MemberRegistrationComponent implements OnInit {
   profileForm: FormGroup
 
 
-  constructor(private memberService: MemberService, private route: ActivatedRoute, 
+  constructor(private memberService: MemberService, private route: ActivatedRoute, private router: Router,
     private datepipe: DatePipe, public toastr: ToastrService) {
     this.memberId = +this.route.snapshot.paramMap.get('id')
     this.profileForm = new FormGroup({
@@ -260,6 +260,7 @@ export class MemberRegistrationComponent implements OnInit {
         }, err => {
   
         }, () => {
+          this.router.navigate(['/member/viewmembers']);
           this.toastr.success("Successfully updated..!")
         })
   

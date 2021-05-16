@@ -20,11 +20,12 @@ export class ReportGenerateComponent implements OnInit {
   todate:string;
   reportForm:FormGroup;
   paymentData:PaymentModel[] = []; 
-  
+  reportHide:boolean = true;
 
   constructor(private paymentService:PaymentService, public toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.reportHide = true
     this.reportForm = new FormGroup({
       fromdate: new FormControl('', [Validators.required]),
       todate: new FormControl('', [Validators.required]),
@@ -33,6 +34,7 @@ export class ReportGenerateComponent implements OnInit {
   }
 
   generatePdf(){
+  
   
     console.log("NNNNNNNNN", this.paymentData)
     var data = document.getElementById('contentToConvert');  
@@ -53,7 +55,7 @@ export class ReportGenerateComponent implements OnInit {
    }
 
    selectType(e){
- 
+    this.reportHide = false
     this.reportForm.controls.type.setValue(e.target.value);
     this.paymentService.reportGeneration( this.reportForm.value.fromdate, this.reportForm.value.todate, this.reportForm.value.type).subscribe(data=>{
       console.log("XXXXXXXXXX", this.paymentData)

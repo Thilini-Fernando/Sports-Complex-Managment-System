@@ -24,11 +24,11 @@
                 <td>{{data.status}}</td>
                 <td  style=" text-align: center;" >{{data.amount | number: '2.2'}}</td>
                 <td>{{data.date}}</td>
-                <td><i class="fa fa-print" aria-hidden="true"></i></td>
-                <td (click)="ediPayment(data)">
+                <td (click)="clickPrint(data.paymentId)"><i class="fa fa-print" aria-hidden="true"></i></td>
+                <td (click)="ediPayment(data.paymentId)">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
               </td>
-              <td (click)="deletePayment(data.memberId)">
+              <td (click)="deletePayment(data.paymentId)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
               </td>
               

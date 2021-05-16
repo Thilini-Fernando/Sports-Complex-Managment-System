@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { EmployeeModel } from '../../../Models/employee-model';
 import { EmployeeService } from '../../../Services/employee.service';
@@ -44,7 +44,7 @@ export class EmpRegistrationComponent implements OnInit {
   });
 
   constructor(private empService: EmployeeService, private viewEmpService: ViewemployeeService, private route: ActivatedRoute,
-    private datepipe: DatePipe, public toastr: ToastrService
+    private datepipe: DatePipe, public toastr: ToastrService, public router:Router
   ) {
     this.empId = +this.route.snapshot.paramMap.get('id')
 
@@ -155,6 +155,7 @@ export class EmpRegistrationComponent implements OnInit {
         console.log("updateeee",this.empObj)
         this.empService.UpdateEmployeeDetails(this.empObj).subscribe(data => {
           this.toastr.success("Successfully updated..!")
+          this.router.navigate(['/employee/viewemployees']);
           this.profileForm.reset()
         }, err => {
           this.toastr.error("Something went wrong..!")

@@ -7,6 +7,7 @@ export class PaymentModel {
     guestNIC?:string;
     guestMobile?:number;
     guestName?:string;
+    paymentId?:number;
      
 }
 
